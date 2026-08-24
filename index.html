@@ -2,518 +2,1524 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Suscripción a la cuponera OFICIAL</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <title>Suscripción a la cuponera OFICIAL | OFICIAL.PE</title>
+
+  <meta
+    name="description"
+    content="Suscríbete gratis a la cuponera OFICIAL."
+  >
+
   <style>
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
     }
 
     body {
-      background-color: #f7f7f8;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      color: #0d0d0d;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 24px 16px;
+      margin: 0;
+      background: #f8f8f6;
+      color: #171717;
+      font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+      line-height: 1.5;
     }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    .page {
+      width: 100%;
+      min-height: 100vh;
+      padding: 38px 20px 42px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    /* =========================
+       CABECERA
+    ========================= */
+
+    .brand {
+      margin-bottom: 18px;
+      text-align: center;
+      color: #77736c;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+    }
+
+    .header {
+      margin-bottom: 28px;
+      text-align: center;
+    }
+
+    .header h1 {
+      margin: 0 auto 10px;
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+    }
+
+    .header p {
+      max-width: 610px;
+      margin: 0 auto;
+      color: #5f5d58;
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    /* =========================
+       TARJETA
+    ========================= */
 
     .form-card {
-      background-color: #ffffff;
       width: 100%;
-      max-width: 640px;
-      padding: 36px 32px;
+      padding: 32px;
+      background: #ffffff;
+      border: 1px solid #deddd9;
       border-radius: 16px;
-      border: 1px solid #e5e5e5;
-    }
-
-    .form-header {
-      text-align: center;
-      margin-bottom: 28px;
-    }
-
-    .form-header h2 {
-      font-size: 22px;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      color: #0d0d0d;
-      margin-bottom: 8px;
-    }
-
-    .form-header p {
-      font-size: 14px;
-      color: #6e6e73;
-      line-height: 1.45;
     }
 
     .form-grid {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 20px;
+      row-gap: 21px;
     }
 
-    @media (min-width: 640px) {
-      .form-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .full-width {
-        grid-column: span 2;
-      }
+    .field {
+      min-width: 0;
     }
 
-    .field-group {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
+    .full-width {
+      grid-column: 1 / -1;
     }
 
-    .field-group.hidden {
+    .field.hidden {
       display: none;
     }
 
-    .field-group label {
+    /* =========================
+       CAMPOS
+    ========================= */
+
+    label {
+      display: block;
+      margin-bottom: 7px;
+      color: #171717;
       font-size: 13px;
       font-weight: 500;
-      color: #0d0d0d;
     }
 
-    .field-group input, 
-    .field-group select {
+    .required {
+      margin-left: 2px;
+    }
+
+    .optional {
+      margin-left: 5px;
+      color: #8a8882;
+      font-size: 11.5px;
+      font-weight: 400;
+    }
+
+    input,
+    select {
       width: 100%;
-      padding: 10px 12px;
-      font-size: 14px;
-      border: 1px solid #d9d9e3;
-      border-radius: 8px;
+      min-height: 48px;
+      padding: 11px 13px;
+      border: 1px solid #cbc9c4;
+      border-radius: 9px;
       outline: none;
-      background-color: #ffffff;
-      color: #0d0d0d;
-      transition: border-color 0.15s ease;
-      appearance: none;
-      -webkit-appearance: none;
+      background: #ffffff;
+      color: #171717;
+      font-size: 15px;
+      transition:
+        border-color 0.15s ease,
+        box-shadow 0.15s ease;
     }
 
-    .select-wrapper {
+    input::placeholder {
+      color: #aaa7a0;
+    }
+
+    select {
+      cursor: pointer;
+    }
+
+    input:focus,
+    select:focus {
+      border-color: #171717;
+      box-shadow: 0 0 0 3px rgba(23, 23, 23, 0.07);
+    }
+
+    /* =========================
+       TELÉFONO
+    ========================= */
+
+    .phone-wrap {
       position: relative;
     }
 
-    .select-wrapper::after {
-      content: "";
+    .phone-prefix {
       position: absolute;
-      right: 12px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 0;
-      height: 0;
-      border-left: 4px solid transparent;
-      border-right: 4px solid transparent;
-      border-top: 5px solid #6e6e73;
+      z-index: 1;
+      top: 1px;
+      bottom: 1px;
+      left: 1px;
+      display: flex;
+      width: 52px;
+      align-items: center;
+      justify-content: center;
+      border-right: 1px solid #deddd9;
+      border-radius: 8px 0 0 8px;
+      background: #f4f3f0;
+      color: #6e6b65;
+      font-size: 13px;
       pointer-events: none;
     }
 
-    .phone-input-container {
-      display: flex;
-      border: 1px solid #d9d9e3;
-      border-radius: 8px;
-      overflow: hidden;
-      background-color: #ffffff;
-      transition: border-color 0.15s ease;
+    .phone-wrap input {
+      padding-left: 65px;
     }
 
-    .phone-prefix {
-      padding: 10px 12px;
-      font-size: 14px;
-      color: #6e6e73;
-      background-color: #ffffff;
-      border-right: 1px solid #e5e5e5;
-      user-select: none;
-      display: flex;
-      align-items: center;
-    }
+    /* =========================
+       ERRORES
+    ========================= */
 
-    .phone-input-container input {
-      border: none;
-      border-radius: 0;
-    }
-
-    .phone-input-container input:focus {
-      border-color: transparent;
-      box-shadow: none;
-    }
-
-    .field-group input:focus, 
-    .field-group select:focus,
-    .phone-input-container:focus-within {
-      border-color: #0d0d0d;
-    }
-
-    .error-msg {
-      font-size: 12px;
-      color: #d93025;
+    .error-message {
       display: none;
-    }
-
-    .hp-field {
-      display: none !important;
-    }
-
-    .btn-submit {
-      width: 100%;
-      padding: 12px;
-      background-color: #0d0d0d;
-      color: #ffffff;
-      border: none;
-      border-radius: 24px;
-      font-size: 14px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: opacity 0.15s ease;
-      margin-top: 8px;
-    }
-
-    .btn-submit:hover {
-      opacity: 0.9;
-    }
-
-    .btn-submit:disabled {
-      background-color: #8e8e93;
-      cursor: not-allowed;
-      opacity: 1;
-    }
-
-    .form-footer-note {
+      margin-top: 6px;
+      color: #a41f2b;
       font-size: 12px;
-      color: #6e6e73;
-      text-align: center;
-      margin-top: 12px;
       line-height: 1.4;
     }
 
-    .status-feedback {
+    .field.error input,
+    .field.error select {
+      border-color: #a41f2b;
+      background: #fffafa;
+    }
+
+    .field.error .error-message {
+      display: block;
+    }
+
+    /* =========================
+       BOTÓN
+    ========================= */
+
+    .submit-area {
+      margin-top: 5px;
+    }
+
+    .submit-button {
+      width: 100%;
+      min-height: 52px;
+      padding: 13px 24px;
+      border: 1px solid #171717;
+      border-radius: 999px;
+      background: #171717;
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition:
+        background 0.15s ease,
+        opacity 0.15s ease,
+        transform 0.15s ease;
+    }
+
+    .submit-button:hover {
+      background: #343434;
+      transform: translateY(-1px);
+    }
+
+    .submit-button:disabled {
+      cursor: not-allowed;
+      opacity: 0.55;
+      transform: none;
+    }
+
+    .privacy {
+      margin: 12px auto 0;
+      color: #83807a;
+      font-size: 11.5px;
+      line-height: 1.5;
       text-align: center;
-      font-size: 13px;
-      margin-top: 12px;
+    }
+
+    /* =========================
+       RESPUESTA
+    ========================= */
+
+    .banner {
       display: none;
+      margin-top: 18px;
+      padding: 15px 17px;
+      border: 1px solid #bad6c5;
+      border-radius: 9px;
+      background: #f4faf6;
+      color: #215d39;
+      font-size: 13px;
+      line-height: 1.5;
     }
 
-    .status-feedback.success {
-      color: #0d0d0d;
+    .banner.show {
+      display: block;
     }
 
-    .status-feedback.error {
-      color: #d93025;
+    .banner.error {
+      border-color: #e0b9bd;
+      background: #fff7f7;
+      color: #8c1e29;
+    }
+
+    .success-title {
+      display: block;
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+
+    /* =========================
+       HONEYPOT
+    ========================= */
+
+    .honeypot {
+      position: absolute !important;
+      left: -9999px !important;
+      width: 1px !important;
+      height: 1px !important;
+      overflow: hidden !important;
+    }
+
+    /* =========================
+       PIE
+    ========================= */
+
+    .footer {
+      margin-top: 24px;
+      color: #86827b;
+      font-size: 10px;
+      letter-spacing: 0.24em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    /* =========================
+       MÓVIL
+    ========================= */
+
+    @media (max-width: 640px) {
+      .page {
+        padding: 28px 14px 32px;
+      }
+
+      .brand {
+        margin-bottom: 15px;
+      }
+
+      .header {
+        margin-bottom: 22px;
+      }
+
+      .header h1 {
+        font-size: 29px;
+      }
+
+      .header p {
+        font-size: 14px;
+      }
+
+      .form-card {
+        padding: 24px 18px;
+        border-radius: 12px;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .full-width {
+        grid-column: auto;
+      }
     }
   </style>
 </head>
+
 <body>
 
-<div class="form-card">
-  <div class="form-header">
-    <h2>Suscripción a la cuponera OFICIAL</h2>
-    <p>Recibe una selección de proveedores con los mejores descuentos en productos y servicios para tu negocio</p>
+<main class="page">
+
+  <div class="container">
+
+    <div class="brand">
+      OFICIAL.PE
+    </div>
+
+    <header class="header">
+
+      <h1>
+        Suscripción a la cuponera OFICIAL
+      </h1>
+
+      <p>
+        Recibe una selección de proveedores con los mejores descuentos
+        en productos y servicios para tu negocio
+      </p>
+
+    </header>
+
+
+    <div class="form-card">
+
+      <form id="subscriptionForm" novalidate>
+
+        <div class="form-grid">
+
+          <!-- NOMBRE DEL NEGOCIO -->
+
+          <div class="field" data-field="nombreNegocio">
+
+            <label for="nombreNegocio">
+              Nombre del negocio
+              <span class="required">*</span>
+            </label>
+
+            <input
+              type="text"
+              id="nombreNegocio"
+              name="nombreNegocio"
+              maxlength="100"
+              autocomplete="organization"
+              placeholder="Ej.: Perfumería Rosita"
+              required
+            >
+
+            <div class="error-message">
+              Ingresa el nombre de tu negocio.
+            </div>
+
+          </div>
+
+
+          <!-- CATEGORÍA -->
+
+          <div class="field" data-field="categoria">
+
+            <label for="categoria">
+              Categoría
+              <span class="required">*</span>
+            </label>
+
+            <select
+              id="categoria"
+              name="categoria"
+              required
+            >
+              <option value="">
+                Selecciona una categoría
+              </option>
+
+              <option value="Alimentos y bebidas">
+                Alimentos y bebidas
+              </option>
+
+              <option value="Belleza y cuidado personal">
+                Belleza y cuidado personal
+              </option>
+
+              <option value="Moda y accesorios">
+                Moda y accesorios
+              </option>
+
+              <option value="Salud y bienestar">
+                Salud y bienestar
+              </option>
+
+              <option value="Hogar y decoración">
+                Hogar y decoración
+              </option>
+
+              <option value="Tecnología y electrónica">
+                Tecnología y electrónica
+              </option>
+
+              <option value="Servicios profesionales">
+                Servicios profesionales
+              </option>
+
+              <option value="Educación y capacitación">
+                Educación y capacitación
+              </option>
+
+              <option value="Automotriz y transporte">
+                Automotriz y transporte
+              </option>
+
+              <option value="Construcción y mantenimiento">
+                Construcción y mantenimiento
+              </option>
+
+              <option value="Entretenimiento y eventos">
+                Entretenimiento y eventos
+              </option>
+
+              <option value="Turismo y hospedaje">
+                Turismo y hospedaje
+              </option>
+
+              <option value="Mascotas">
+                Mascotas
+              </option>
+
+              <option value="Deportes y fitness">
+                Deportes y fitness
+              </option>
+
+              <option value="Comercio y tiendas">
+                Comercio y tiendas
+              </option>
+
+              <option value="Otros">
+                Otros
+              </option>
+            </select>
+
+            <div class="error-message">
+              Selecciona una categoría.
+            </div>
+
+          </div>
+
+
+          <!-- OTRA CATEGORÍA -->
+
+          <div
+            class="field full-width hidden"
+            id="otherCategoryField"
+            data-field="otraCategoria"
+          >
+
+            <label for="otraCategoria">
+              Especifica la categoría
+              <span class="required">*</span>
+            </label>
+
+            <input
+              type="text"
+              id="otraCategoria"
+              name="otraCategoria"
+              maxlength="80"
+              placeholder="Ej.: Servicios para mascotas"
+            >
+
+            <div class="error-message">
+              Especifica la categoría de tu negocio.
+            </div>
+
+          </div>
+
+
+          <!-- TIPO DE NEGOCIO -->
+
+          <div class="field">
+
+            <label for="tipoNegocio">
+              Tipo de negocio
+              <span class="optional">(opcional)</span>
+            </label>
+
+            <input
+              type="text"
+              id="tipoNegocio"
+              name="tipoNegocio"
+              maxlength="80"
+              placeholder="Ej.: Perfumería, chifa, barbería"
+            >
+
+          </div>
+
+
+          <!-- DISTRITO -->
+
+          <div class="field" data-field="distrito">
+
+            <label for="distrito">
+              Distrito del negocio
+              <span class="required">*</span>
+            </label>
+
+            <select
+              id="distrito"
+              name="distrito"
+              required
+            >
+              <option value="">
+                Selecciona el distrito
+              </option>
+            </select>
+
+            <div class="error-message">
+              Selecciona el distrito de tu negocio.
+            </div>
+
+          </div>
+
+
+          <!-- ENCARGADO -->
+
+          <div class="field">
+
+            <label for="encargado">
+              Nombre del encargado
+              <span class="optional">(opcional)</span>
+            </label>
+
+            <input
+              type="text"
+              id="encargado"
+              name="encargado"
+              maxlength="100"
+              autocomplete="name"
+              placeholder="Ej.: María López"
+            >
+
+          </div>
+
+
+          <!-- TELÉFONO -->
+
+          <div class="field" data-field="telefono">
+
+            <label for="telefono">
+              Teléfono / WhatsApp
+              <span class="required">*</span>
+            </label>
+
+            <div class="phone-wrap">
+
+              <span class="phone-prefix">
+                +51
+              </span>
+
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                inputmode="numeric"
+                autocomplete="tel"
+                maxlength="11"
+                placeholder="987 654 321"
+                required
+              >
+
+            </div>
+
+            <div class="error-message">
+              Ingresa un celular peruano válido de 9 dígitos.
+            </div>
+
+          </div>
+
+
+          <!-- CORREO -->
+
+          <div
+            class="field full-width"
+            data-field="correo"
+          >
+
+            <label for="correo">
+              Correo electrónico
+              <span class="optional">(opcional)</span>
+            </label>
+
+            <input
+              type="email"
+              id="correo"
+              name="correo"
+              maxlength="120"
+              autocomplete="email"
+              placeholder="negocio@correo.com"
+            >
+
+            <div class="error-message">
+              Ingresa un correo electrónico válido.
+            </div>
+
+          </div>
+
+
+          <!-- HONEYPOT -->
+
+          <div
+            class="honeypot"
+            aria-hidden="true"
+          >
+
+            <input
+              type="text"
+              id="website"
+              name="website"
+              tabindex="-1"
+              autocomplete="off"
+            >
+
+          </div>
+
+
+          <!-- BOTÓN -->
+
+          <div class="full-width submit-area">
+
+            <button
+              type="submit"
+              class="submit-button"
+              id="submitButton"
+            >
+              Suscribirme gratis
+            </button>
+
+            <p class="privacy">
+              Al registrarte, tus datos serán utilizados para gestionar
+              tu suscripción a la Cuponera OFICIAL.
+            </p>
+
+            <div
+              class="banner"
+              id="formBanner"
+              role="alert"
+              aria-live="polite"
+            ></div>
+
+          </div>
+
+        </div>
+
+      </form>
+
+    </div>
+
+
+    <footer class="footer">
+      OFICIAL
+    </footer>
+
   </div>
 
-  <form id="cuponeraForm" class="form-grid" novalidate>
-    <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off">
+</main>
 
-    <div class="field-group">
-      <label for="nombreNegocio">Nombre del negocio *</label>
-      <input type="text" id="nombreNegocio" name="nombreNegocio" required>
-      <span class="error-msg" id="err-nombreNegocio">Ingresa el nombre del negocio.</span>
-    </div>
-
-    <div class="field-group">
-      <label for="categoria">Categoría *</label>
-      <div class="select-wrapper">
-        <select id="categoria" name="categoria" required>
-          <option value="" disabled selected>Selecciona una categoría</option>
-          <option value="Alimentos y bebidas">Alimentos y bebidas</option>
-          <option value="Belleza y cuidado personal">Belleza y cuidado personal</option>
-          <option value="Moda y accesorios">Moda y accesorios</option>
-          <option value="Salud y bienestar">Salud y bienestar</option>
-          <option value="Hogar y decoración">Hogar y decoración</option>
-          <option value="Tecnología y electrónica">Tecnología y electrónica</option>
-          <option value="Servicios profesionales">Servicios profesionales</option>
-          <option value="Educación y capacitación">Educación y capacitación</option>
-          <option value="Automotriz y transporte">Automotriz y transporte</option>
-          <option value="Construcción y mantenimiento">Construcción y mantenimiento</option>
-          <option value="Entretenimiento y eventos">Entretenimiento y eventos</option>
-          <option value="Turismo y hospedaje">Turismo y hospedaje</option>
-          <option value="Mascotas">Mascotas</option>
-          <option value="Deportes y fitness">Deportes y fitness</option>
-          <option value="Comercio y tiendas">Comercio y tiendas</option>
-          <option value="Otros">Otros</option>
-        </select>
-      </div>
-      <span class="error-msg" id="err-categoria">Selecciona una categoría.</span>
-    </div>
-
-    <div class="field-group full-width hidden" id="group-otraCategoria">
-      <label for="otraCategoria">Especifica la categoría *</label>
-      <input type="text" id="otraCategoria" name="otraCategoria">
-      <span class="error-msg" id="err-otraCategoria">Especifica tu categoría.</span>
-    </div>
-
-    <div class="field-group">
-      <label for="tipoNegocio">Tipo de negocio</label>
-      <input type="text" id="tipoNegocio" name="tipoNegocio">
-    </div>
-
-    <div class="field-group">
-      <label for="distrito">Distrito del negocio *</label>
-      <div class="select-wrapper">
-        <select id="distrito" name="distrito" required>
-          <option value="" disabled selected>Selecciona tu distrito</option>
-          <option value="Ancón">Ancón</option>
-          <option value="Ate">Ate</option>
-          <option value="Barranco">Barranco</option>
-          <option value="Bellavista">Bellavista</option>
-          <option value="Breña">Breña</option>
-          <option value="Callao">Callao</option>
-          <option value="Carabayllo">Carabayllo</option>
-          <option value="Carmen de La Legua-Reynoso">Carmen de La Legua-Reynoso</option>
-          <option value="Chaclacayo">Chaclacayo</option>
-          <option value="Chorrillos">Chorrillos</option>
-          <option value="Cieneguilla">Cieneguilla</option>
-          <option value="Comas">Comas</option>
-          <option value="El Agustino">El Agustino</option>
-          <option value="Independencia">Independencia</option>
-          <option value="Jesús María">Jesús María</option>
-
-          <option value="La Molina">La Molina</option>
-          <option value="La Perla">La Perla</option>
-          <option value="La Victoria">La Victoria</option>
-          <option value="Lima">Lima</option>
-          <option value="Lince">Lince</option>
-          <option value="Los Olivos">Los Olivos</option>
-          <option value="Lurigancho-Chosica">Lurigancho-Chosica</option>
-          <option value="Lurín">Lurín</option>
-          <option value="Magdalena del Mar">Magdalena del Mar</option>
-          <option value="Mi Perú">Mi Perú</option>
-          <option value="Miraflores">Miraflores</option>
-          <option value="Pachacámac">Pachacámac</option>
-          <option value="Pucusana">Pucusana</option>
-          <option value="Pueblo Libre">Pueblo Libre</option>
-          <option value="Puente Piedra">Puente Piedra</option>
-          <option value="Punta Hermosa">Punta Hermosa</option>
-          <option value="Punta Negra">Punta Negra</option>
-          <option value="Rímac">Rímac</option>
-          <option value="San Bartolo">San Bartolo</option>
-          <option value="San Borja">San Borja</option>
-          <option value="San Isidro">San Isidro</option>
-          <option value="San Juan de Lurigancho">San Juan de Lurigancho</option>
-          <option value="San Juan de Miraflores">San Juan de Miraflores</option>
-          <option value="San Luis">San Luis</option>
-          <option value="San Martín de Porres">San Martín de Porres</option>
-          <option value="San Miguel">San Miguel</option>
-          <option value="Santa Anita">Santa Anita</option>
-          <option value="Santa María del Mar">Santa María del Mar</option>
-          <option value="Santa Rosa">Santa Rosa</option>
-          <option value="Santiago de Surco">Santiago de Surco</option>
-          <option value="Surquillo">Surquillo</option>
-          <option value="Ventanilla">Ventanilla</option>
-          <option value="Villa El Salvador">Villa El Salvador</option>
-          <option value="Villa María del Triunfo">Villa María del Triunfo</option>
-        </select>
-      </div>
-      <span class="error-msg" id="err-distrito">Selecciona un distrito.</span>
-    </div>
-
-    <div class="field-group">
-      <label for="encargado">Nombre del encargado</label>
-      <input type="text" id="encargado" name="encargado">
-    </div>
-
-    <div class="field-group">
-      <label for="telefono">Teléfono / WhatsApp *</label>
-      <div class="phone-input-container">
-        <span class="phone-prefix">+51</span>
-        <input type="tel" id="telefono" name="telefono" placeholder="987 654 321" maxlength="9" required>
-      </div>
-      <span class="error-msg" id="err-telefono">Ingresa un celular válido de 9 dígitos que empiece con 9.</span>
-    </div>
-
-    <div class="field-group full-width">
-      <label for="correo">Correo electrónico</label>
-      <input type="email" id="correo" name="correo">
-      <span class="error-msg" id="err-correo">Ingresa un correo electrónico válido.</span>
-    </div>
-
-    <div class="field-group full-width">
-      <button type="submit" id="submitBtn" class="btn-submit">Suscribirme gratis</button>
-      <p class="form-footer-note">
-        Al registrarte, tus datos serán utilizados para gestionar tu suscripción a la Cuponera OFICIAL.
-      </p>
-      <div id="statusFeedback" class="status-feedback" aria-live="polite"></div>
-    </div>
-  </form>
-</div>
 
 <script>
-  const SCRIPT_URL = 'TU_WEB_APP_URL_AQUI';
+(function () {
 
-  const form = document.getElementById('cuponeraForm');
-  const submitBtn = document.getElementById('submitBtn');
-  const feedback = document.getElementById('statusFeedback');
-  const categoriaSelect = document.getElementById('categoria');
-  const groupOtraCategoria = document.getElementById('group-otraCategoria');
-  const otraCategoriaInput = document.getElementById('otraCategoria');
+  "use strict";
 
-  function toggleOtraCategoria() {
-    if (categoriaSelect.value === 'Otros') {
-      groupOtraCategoria.classList.remove('hidden');
-      otraCategoriaInput.required = true;
-    } else {
-      groupOtraCategoria.classList.add('hidden');
-      otraCategoriaInput.required = false;
-      otraCategoriaInput.value = '';
-      document.getElementById('err-otraCategoria').style.display = 'none';
+
+  /* =========================================================
+     CONFIGURACIÓN
+  ========================================================= */
+
+  var SHEET_ENDPOINT =
+    "PEGA_AQUI_LA_URL_DE_TU_APPS_SCRIPT";
+
+  var DRAFT_KEY =
+    "oficial_cuponera_suscripcion_draft";
+
+  var isSubmitting = false;
+
+
+  /* =========================================================
+     ELEMENTOS
+  ========================================================= */
+
+  var form =
+    document.getElementById("subscriptionForm");
+
+  var submitButton =
+    document.getElementById("submitButton");
+
+  var formBanner =
+    document.getElementById("formBanner");
+
+  var categoria =
+    document.getElementById("categoria");
+
+  var otraCategoria =
+    document.getElementById("otraCategoria");
+
+  var otherCategoryField =
+    document.getElementById("otherCategoryField");
+
+  var distrito =
+    document.getElementById("distrito");
+
+  var telefono =
+    document.getElementById("telefono");
+
+
+  /* =========================================================
+     50 DISTRITOS DE LIMA Y CALLAO
+  ========================================================= */
+
+  var distritos = [
+    "Ancón",
+    "Ate",
+    "Barranco",
+    "Bellavista",
+    "Breña",
+    "Callao",
+    "Carabayllo",
+    "Carmen de La Legua-Reynoso",
+    "Chaclacayo",
+    "Chorrillos",
+    "Cieneguilla",
+    "Comas",
+    "El Agustino",
+    "Independencia",
+    "Jesús María",
+    "La Molina",
+    "La Perla",
+    "La Punta",
+    "La Victoria",
+    "Lima",
+    "Lince",
+    "Los Olivos",
+    "Lurigancho",
+    "Lurín",
+    "Magdalena del Mar",
+    "Mi Perú",
+    "Miraflores",
+    "Pachacámac",
+    "Pucusana",
+    "Pueblo Libre",
+    "Puente Piedra",
+    "Punta Hermosa",
+    "Punta Negra",
+    "Rímac",
+    "San Bartolo",
+    "San Borja",
+    "San Isidro",
+    "San Juan de Lurigancho",
+    "San Juan de Miraflores",
+    "San Luis",
+    "San Martín de Porres",
+    "San Miguel",
+    "Santa Anita",
+    "Santa María del Mar",
+    "Santa Rosa",
+    "Santiago de Surco",
+    "Surquillo",
+    "Ventanilla",
+    "Villa El Salvador",
+    "Villa María del Triunfo"
+  ];
+
+
+  distritos.forEach(function (nombre) {
+
+    var option =
+      document.createElement("option");
+
+    option.value =
+      nombre;
+
+    option.textContent =
+      nombre;
+
+    distrito.appendChild(option);
+
+  });
+
+
+  /* =========================================================
+     CATEGORÍA OTROS
+  ========================================================= */
+
+  function updateOtherCategory() {
+
+    var isOther =
+      categoria.value === "Otros";
+
+    otherCategoryField.classList.toggle(
+      "hidden",
+      !isOther
+    );
+
+    otraCategoria.required =
+      isOther;
+
+    if (!isOther) {
+
+      otraCategoria.value = "";
+
+      setError(
+        "otraCategoria",
+        false
+      );
+
     }
+
   }
 
-  categoriaSelect.addEventListener('change', toggleOtraCategoria);
 
-  function escapeHtml(str) {
-    return String(str).replace(/[&<>"']/g, function (match) {
-      const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
-      return map[match];
-    });
+  categoria.addEventListener(
+    "change",
+    function () {
+
+      updateOtherCategory();
+      saveDraft();
+
+    }
+  );
+
+
+  /* =========================================================
+     MÁSCARA DE TELÉFONO
+  ========================================================= */
+
+  function formatPhone(value) {
+
+    var clean =
+      value
+        .replace(/\D/g, "")
+        .slice(0, 9);
+
+    if (clean.length > 6) {
+
+      return (
+        clean.slice(0, 3)
+        + " "
+        + clean.slice(3, 6)
+        + " "
+        + clean.slice(6)
+      );
+
+    }
+
+    if (clean.length > 3) {
+
+      return (
+        clean.slice(0, 3)
+        + " "
+        + clean.slice(3)
+      );
+
+    }
+
+    return clean;
+
   }
+
+
+  telefono.addEventListener(
+    "input",
+    function () {
+
+      this.value =
+        formatPhone(this.value);
+
+      saveDraft();
+
+    }
+  );
+
+
+  /* =========================================================
+     BORRADOR AUTOMÁTICO
+  ========================================================= */
 
   function saveDraft() {
-    const draft = {
-      nombreNegocio: form.nombreNegocio.value,
-      categoria: form.categoria.value,
-      otraCategoria: form.otraCategoria.value,
-      tipoNegocio: form.tipoNegocio.value,
-      distrito: form.distrito.value,
-      encargado: form.encargado.value,
-      telefono: form.telefono.value,
-      correo: form.correo.value
-    };
-    localStorage.setItem('cuponera_draft', JSON.stringify(draft));
-  }
 
-  function loadDraft() {
-    const draft = JSON.parse(localStorage.getItem('cuponera_draft'));
-    if (draft) {
-      form.nombreNegocio.value = draft.nombreNegocio || '';
-      form.categoria.value = draft.categoria || '';
-      form.otraCategoria.value = draft.otraCategoria || '';
-      form.tipoNegocio.value = draft.tipoNegocio || '';
-      form.distrito.value = draft.distrito || '';
-      form.encargado.value = draft.encargado || '';
-      form.telefono.value = draft.telefono || '';
-      form.correo.value = draft.correo || '';
-      toggleOtraCategoria();
-    }
-  }
-
-  form.addEventListener('input', saveDraft);
-  document.addEventListener('DOMContentLoaded', loadDraft);
-
-  function validateForm() {
-    let isValid = true;
-    const phoneRegex = /^9\d{8}$/;
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    document.querySelectorAll('.error-msg').forEach(el => el.style.display = 'none');
-
-    if (!form.nombreNegocio.value.trim()) {
-      document.getElementById('err-nombreNegocio').style.display = 'block';
-      isValid = false;
-    }
-
-    if (!form.categoria.value) {
-      document.getElementById('err-categoria').style.display = 'block';
-      isValid = false;
-    }
-
-    if (form.categoria.value === 'Otros' && !form.otraCategoria.value.trim()) {
-      document.getElementById('err-otraCategoria').style.display = 'block';
-      isValid = false;
-    }
-
-    if (!form.distrito.value) {
-      document.getElementById('err-distrito').style.display = 'block';
-      isValid = false;
-    }
-
-    const phoneVal = form.telefono.value.trim().replace(/\s+/g, '');
-    if (!phoneRegex.test(phoneVal)) {
-      document.getElementById('err-telefono').style.display = 'block';
-      isValid = false;
-    }
-
-    const emailVal = form.correo.value.trim();
-    if (emailVal !== '' && !emailRegex.test(emailVal)) {
-      document.getElementById('err-correo').style.display = 'block';
-      isValid = false;
-    }
-
-    return isValid;
-  }
-
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    if (form.website.value !== "") {
+    if (isSubmitting) {
       return;
     }
 
-    if (!validateForm()) return;
+    var draft = {
 
-    submitBtn.disabled = true;
-    submitBtn.textContent = "Procesando...";
-    feedback.className = "status-feedback";
-    feedback.style.display = "none";
+      nombreNegocio:
+        form.nombreNegocio.value,
 
-    const payload = {
-      nombreNegocio: escapeHtml(form.nombreNegocio.value.trim()),
-      categoria: escapeHtml(form.categoria.value),
-      otraCategoria: form.categoria.value === 'Otros' ? escapeHtml(form.otraCategoria.value.trim()) : '',
-      tipoNegocio: escapeHtml(form.tipoNegocio.value.trim()),
-      distrito: escapeHtml(form.distrito.value),
-      encargado: escapeHtml(form.encargado.value.trim()),
-      telefono: escapeHtml(form.telefono.value.trim().replace(/\s+/g, '')),
-      correo: escapeHtml(form.correo.value.trim())
+      categoria:
+        categoria.value,
+
+      otraCategoria:
+        otraCategoria.value,
+
+      tipoNegocio:
+        form.tipoNegocio.value,
+
+      distrito:
+        distrito.value,
+
+      encargado:
+        form.encargado.value,
+
+      telefono:
+        telefono.value,
+
+      correo:
+        form.correo.value
+
     };
 
-    fetch(SCRIPT_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify(payload)
-    })
-    .then(res => res.json())
-    .then(data => {
-      if (data.result === 'success') {
-        feedback.textContent = "¡Suscripción realizada con éxito!";
-        feedback.className = "status-feedback success";
-        feedback.style.display = "block";
-        form.reset();
-        toggleOtraCategoria();
-        localStorage.removeItem('cuponera_draft');
-      } else if (data.result === 'exists') {
-        feedback.textContent = "El teléfono o correo ya se encuentra registrado.";
-        feedback.className = "status-feedback error";
-        feedback.style.display = "block";
-      } else {
-        throw new Error('Error al procesar el registro.');
+    try {
+
+      localStorage.setItem(
+        DRAFT_KEY,
+        JSON.stringify(draft)
+      );
+
+    } catch (e) {}
+
+  }
+
+
+  function loadDraft() {
+
+    try {
+
+      var raw =
+        localStorage.getItem(DRAFT_KEY);
+
+      if (!raw) {
+        return;
       }
-    })
-    .catch(err => {
-      feedback.textContent = "Ocurrió un error al enviar el formulario. Inténtalo nuevamente.";
-      feedback.className = "status-feedback error";
-      feedback.style.display = "block";
-    })
-    .finally(() => {
-      submitBtn.disabled = false;
-      submitBtn.textContent = "Suscribirme gratis";
-    });
-  });
+
+      var draft =
+        JSON.parse(raw);
+
+      form.nombreNegocio.value =
+        draft.nombreNegocio || "";
+
+      categoria.value =
+        draft.categoria || "";
+
+      updateOtherCategory();
+
+      otraCategoria.value =
+        draft.otraCategoria || "";
+
+      form.tipoNegocio.value =
+        draft.tipoNegocio || "";
+
+      distrito.value =
+        draft.distrito || "";
+
+      form.encargado.value =
+        draft.encargado || "";
+
+      telefono.value =
+        formatPhone(
+          draft.telefono || ""
+        );
+
+      form.correo.value =
+        draft.correo || "";
+
+    } catch (e) {}
+
+  }
+
+
+  form.addEventListener(
+    "input",
+    saveDraft
+  );
+
+  form.addEventListener(
+    "change",
+    saveDraft
+  );
+
+  loadDraft();
+
+
+  /* =========================================================
+     ERRORES
+  ========================================================= */
+
+  function setError(
+    fieldName,
+    hasError
+  ) {
+
+    var field =
+      form.querySelector(
+        '[data-field="' +
+        fieldName +
+        '"]'
+      );
+
+    if (!field) {
+      return;
+    }
+
+    field.classList.toggle(
+      "error",
+      hasError
+    );
+
+  }
+
+
+  function clearErrors() {
+
+    var fields =
+      form.querySelectorAll(
+        ".field.error"
+      );
+
+    fields.forEach(
+      function (field) {
+
+        field.classList.remove(
+          "error"
+        );
+
+      }
+    );
+
+  }
+
+
+  /* =========================================================
+     VALIDACIÓN
+  ========================================================= */
+
+  function validateEmail(email) {
+
+    if (!email) {
+      return true;
+    }
+
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+      .test(email);
+
+  }
+
+
+  function validate() {
+
+    clearErrors();
+
+    var valid = true;
+
+
+    var nombreNegocio =
+      form.nombreNegocio
+        .value
+        .trim();
+
+    if (nombreNegocio.length < 2) {
+
+      setError(
+        "nombreNegocio",
+        true
+      );
+
+      valid = false;
+
+    }
+
+
+    if (!categoria.value) {
+
+      setError(
+        "categoria",
+        true
+      );
+
+      valid = false;
+
+    }
+
+
+    if (
+      categoria.value === "Otros"
+      &&
+      otraCategoria
+        .value
+        .trim()
+        .length < 2
+    ) {
+
+      setError(
+        "otraCategoria",
+        true
+      );
+
+      valid = false;
+
+    }
+
+
+    if (!distrito.value) {
+
+      setError(
+        "distrito",
+        true
+      );
+
+      valid = false;
+
+    }
+
+
+    var phoneDigits =
+      telefono
+        .value
+        .replace(/\D/g, "");
+
+    var phoneOk =
+      phoneDigits.length === 9
+      &&
+      phoneDigits.charAt(0) === "9";
+
+    if (!phoneOk) {
+
+      setError(
+        "telefono",
+        true
+      );
+
+      valid = false;
+
+    }
+
+
+    var correo =
+      form.correo
+        .value
+        .trim();
+
+    if (!validateEmail(correo)) {
+
+      setError(
+        "correo",
+        true
+      );
+
+      valid = false;
+
+    }
+
+
+    return valid;
+
+  }
+
+
+  /* =========================================================
+     MENSAJES
+  ========================================================= */
+
+  function showError(message) {
+
+    formBanner.textContent =
+      message;
+
+    formBanner.className =
+      "banner show error";
+
+  }
+
+
+  function showSuccess(nombreNegocio) {
+
+    formBanner.innerHTML = "";
+
+    var title =
+      document.createElement("span");
+
+    title.className =
+      "success-title";
+
+    title.textContent =
+      "✓ SUSCRIPCIÓN REGISTRADA";
+
+    var message =
+      document.createTextNode(
+        "Gracias, "
+        + nombreNegocio
+        + ". Tu negocio fue registrado correctamente en la Cuponera OFICIAL."
+      );
+
+    formBanner.appendChild(title);
+    formBanner.appendChild(message);
+
+    formBanner.className =
+      "banner show";
+
+  }
+
+
+  /* =========================================================
+     ENVÍO
+  ========================================================= */
+
+  form.addEventListener(
+    "submit",
+    function (event) {
+
+      event.preventDefault();
+
+      formBanner.className =
+        "banner";
+
+
+      if (!validate()) {
+
+        showError(
+          "Revisa los campos marcados antes de continuar."
+        );
+
+        var firstError =
+          form.querySelector(
+            ".field.error"
+          );
+
+        if (firstError) {
+
+          firstError.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+          });
+
+        }
+
+        return;
+
+      }
+
+
+      /* Honeypot */
+
+      if (
+        document
+          .getElementById("website")
+          .value
+          .trim() !== ""
+      ) {
+
+        localStorage.removeItem(
+          DRAFT_KEY
+        );
+
+        form.reset();
+
+        updateOtherCategory();
+
+        return;
+
+      }
+
+
+      if (
+        !SHEET_ENDPOINT
+        ||
+        SHEET_ENDPOINT ===
+          "PEGA_AQUI_LA_URL_DE_TU_APPS_SCRIPT"
+      ) {
+
+        showError(
+          "El formulario todavía no tiene configurada la conexión con Google Sheets."
+        );
+
+        return;
+
+      }
+
+
+      var payload = {
+
+        nombreNegocio:
+          form.nombreNegocio
+            .value
+            .trim(),
+
+        categoria:
+          categoria.value,
+
+        otraCategoria:
+          categoria.value === "Otros"
+            ? otraCategoria.value.trim()
+            : "",
+
+        tipoNegocio:
+          form.tipoNegocio
+            .value
+            .trim(),
+
+        distrito:
+          distrito.value,
+
+        encargado:
+          form.encargado
+            .value
+            .trim(),
+
+        telefono:
+          telefono
+            .value
+            .replace(/\D/g, ""),
+
+        correo:
+          form.correo
+            .value
+            .trim()
+            .toLowerCase()
+
+      };
+
+
+      isSubmitting = true;
+
+      submitButton.disabled =
+        true;
+
+      submitButton.textContent =
+        "Registrando…";
+
+
+      fetch(
+        SHEET_ENDPOINT,
+        {
+
+          method: "POST",
+
+          headers: {
+            "Content-Type":
+              "text/plain;charset=utf-8"
+          },
+
+          body:
+            JSON.stringify(payload)
+
+        }
+      )
+
+      .then(function (response) {
+
+        if (!response.ok) {
+
+          throw new Error(
+            "Respuesta inválida del servidor."
+          );
+
+        }
+
+        return response.json();
+
+      })
+
+      .then(function (data) {
+
+        if (
+          data
+          &&
+          data.result === "success"
+        ) {
+
+          showSuccess(
+            payload.nombreNegocio
+          );
+
+          localStorage.removeItem(
+            DRAFT_KEY
+          );
+
+          form.reset();
+
+          updateOtherCategory();
+
+          formBanner.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+          });
+
+          return;
+
+        }
+
+
+        if (
+          data
+          &&
+          data.result === "exists"
+        ) {
+
+          showError(
+            data.message
+            ||
+            "Este negocio ya se encuentra registrado."
+          );
+
+          return;
+
+        }
+
+
+        showError(
+          data && data.message
+            ? data.message
+            : "No se pudo completar el registro. Inténtalo nuevamente."
+        );
+
+      })
+
+      .catch(function (error) {
+
+        console.error(
+          "Error:",
+          error
+        );
+
+        showError(
+          "No se pudo conectar con el servidor. Inténtalo nuevamente."
+        );
+
+      })
+
+      .finally(function () {
+
+        isSubmitting =
+          false;
+
+        submitButton.disabled =
+          false;
+
+        submitButton.textContent =
+          "Suscribirme gratis";
+
+      });
+
+    }
+  );
+
+})();
 </script>
 
 </body>

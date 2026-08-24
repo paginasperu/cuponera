@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cuponera | OFICIAL.PE</title>
+  <title>Suscripción a la cuponera OFICIAL</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
+    /* Estética estilo ChatGPT: limpia, neutra y funcional */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -14,473 +13,348 @@
     }
 
     body {
-      background-color: #F8F9FA;
-      color: #111111;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      min-height: 100vh;
+      background-color: #f9f9fb;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      color: #0d0d0d;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 24px 16px;
-      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      padding: 20px;
     }
 
-    .container {
+    .form-container {
+      background-color: #ffffff;
       width: 100%;
-      max-width: 480px;
+      max-width: 640px;
+      padding: 32px 24px;
+      border-radius: 12px;
+      border: 1px solid #e5e5e5;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    .form-header {
       text-align: center;
+      margin-bottom: 28px;
     }
 
-    .brand {
-      font-size: 13px;
+    .form-header h2 {
+      font-size: 24px;
       font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: #726C5D;
-      margin-bottom: 24px;
+      margin-bottom: 8px;
+      color: #0d0d0d;
     }
 
-    h1 {
-      font-size: clamp(28px, 5vw, 38px);
-      font-weight: 500;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-      color: #111111;
-      margin-bottom: 12px;
+    .form-header p {
+      font-size: 14px;
+      color: #676767;
+      line-height: 1.5;
     }
 
-    p.subtitle {
-      font-size: 15px;
-      color: #666666;
-      margin-bottom: 32px;
-      line-height: 1.4;
-    }
-
-    p.subtitle strong {
-      color: #111111;
-      font-weight: 600;
-    }
-
-    /* Formulario */
-    form {
-      display: flex;
-      flex-direction: column;
+    /* Layout en Grid: 1 columna en móvil, 2 en pantallas medianas/grandes */
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr;
       gap: 16px;
-      text-align: left;
     }
 
-    .field {
+    @media (min-width: 640px) {
+      .form-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .full-width {
+        grid-column: span 2;
+      }
+    }
+
+    .field-group {
       display: flex;
       flex-direction: column;
       gap: 6px;
     }
 
-    .row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
-    label {
+    .field-group label {
       font-size: 13px;
       font-weight: 500;
-      color: #333333;
+      color: #0d0d0d;
     }
 
-    label .req {
-      color: #c81d2c;
-    }
-
-    label .opt {
-      color: #888888;
-      font-weight: 400;
-      font-size: 12px;
-    }
-
-    input[type="text"],
-    input[type="tel"],
-    input[type="email"],
-    select {
+    .field-group input, 
+    .field-group select {
       width: 100%;
-      height: 48px;
-      padding: 0 16px;
-      font-size: 15px;
-      font-family: inherit;
-      color: #111111;
-      background: #FFFFFF;
-      border: 1px solid #E0E0E0;
+      padding: 10px 12px;
+      font-size: 14px;
+      border: 1px solid #d9d9e3;
       border-radius: 8px;
       outline: none;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
-      appearance: none;
-      -webkit-appearance: none;
+      background-color: #fff;
+      color: #0d0d0d;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
     }
 
-    input:focus, select:focus {
-      border-color: #111111;
-      box-shadow: 0 0 0 2px rgba(17, 17, 17, 0.08);
-    }
-
-    /* Prefijo +51 */
-    .prefix-wrapper {
-      position: relative;
-      display: flex;
-      align-items: center;
-    }
-
-    .prefix-wrapper .prefix {
-      position: absolute;
-      left: 14px;
-      font-size: 15px;
-      color: #666666;
-      pointer-events: none;
-    }
-
-    .prefix-wrapper input {
-      padding-left: 48px;
-    }
-
-    /* Manejo de errores */
-    .field.error input,
-    .field.error select {
-      border-color: #C81D2C;
-      background-color: #FFF8F8;
+    .field-group input:focus, 
+    .field-group select:focus {
+      border-color: #10a37f;
+      box-shadow: 0 0 0 2px rgba(16, 163, 127, 0.2);
     }
 
     .error-msg {
-      display: none;
       font-size: 12px;
-      color: #C81D2C;
-    }
-
-    .field.error .error-msg {
-      display: block;
-    }
-
-    /* Botón Ovalado Minimalista */
-    button.submit-btn {
-      margin-top: 12px;
-      width: 100%;
-      height: 50px;
-      background: transparent;
-      color: #111111;
-      border: 1px solid #D0D0D0;
-      border-radius: 999px;
-      font-size: 15px;
-      font-weight: 500;
-      font-family: inherit;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    button.submit-btn:hover {
-      border-color: #111111;
-      background: #111111;
-      color: #FFFFFF;
-    }
-
-    button.submit-btn:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-      background: transparent;
-      color: #111111;
-      border-color: #D0D0D0;
-    }
-
-    /* Banners de respuesta */
-    .banner {
+      color: #d93025;
       display: none;
-      margin-top: 16px;
-      padding: 14px;
+    }
+
+    /* Campo Honeypot para evitar spam */
+    .hp-field {
+      display: none !important;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 12px;
+      background-color: #10a37f;
+      color: #ffffff;
+      border: none;
       border-radius: 8px;
       font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.15s ease;
+      margin-top: 8px;
+    }
+
+    .btn-submit:hover {
+      background-color: #1a7f64;
+    }
+
+    .btn-submit:disabled {
+      background-color: #acace6;
+      cursor: not-allowed;
+    }
+
+    .form-footer-note {
+      font-size: 12px;
+      color: #8e8e93;
       text-align: center;
+      margin-top: 12px;
       line-height: 1.4;
     }
 
-    .banner.show { display: block; }
-    .banner.success { background: #EBF7EE; color: #1E6B37; border: 1px solid #C2E7C9; }
-    .banner.err { background: #FDE8E8; color: #9B1C1C; border: 1px solid #F8B4B4; }
+    .status-feedback {
+      text-align: center;
+      font-size: 14px;
+      margin-top: 12px;
+      display: none;
+    }
 
-    @media (max-width: 480px) {
-      .row { grid-template-columns: 1fr; gap: 16px; }
+    .status-feedback.success {
+      color: #10a37f;
+    }
+
+    .status-feedback.error {
+      color: #d93025;
     }
   </style>
 </head>
 <body>
 
-<div class="container">
-  <div class="brand">OFICIAL.PE</div>
-  
-  <h1>Suscripción a la cuponera</h1>
-  <p class="subtitle">Recibe cupones y promociones exclusivas de marcas y negocios en tu distrito.</p>
+<div class="form-container">
+  <div class="form-header">
+    <h2>Suscripción a la cuponera OFICIAL</h2>
+    <p>Recibe Una selección de proveedores con los mejores descuentos en productos y servicios para tu negocio</p>
+  </div>
 
-  <form id="cuponeraForm" novalidate>
-    
-    <div class="field" data-field="nombres">
-      <label for="nombres">Tu nombre<span class="req">*</span></label>
-      <input type="text" id="nombres" name="nombres" placeholder="Ej: María" required>
-      <span class="error-msg">Ingresa tu nombre.</span>
+  <form id="cuponeraForm" class="form-grid" novalidate>
+    <!-- Honeypot antispam -->
+    <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off">
+
+    <div class="field-group">
+      <label for="nombre">Nombre completo</label>
+      <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" required>
+      <span class="error-msg" id="err-nombre">Ingresa un nombre válido.</span>
     </div>
 
-    <div class="row">
-      <div class="field" data-field="distrito">
-        <label for="distrito">Distrito<span class="req">*</span></label>
-        <select id="distrito" name="distrito" required>
-          <option value="">Selecciona</option>
-        </select>
-        <span class="error-msg">Selecciona tu distrito.</span>
-      </div>
-
-      <div class="field" data-field="telefono">
-        <label for="telefono">WhatsApp / Celular<span class="req">*</span></label>
-        <div class="prefix-wrapper">
-          <span class="prefix">+51</span>
-          <input type="tel" id="telefono" name="telefono" placeholder="987 654 321" maxlength="11" inputmode="numeric" required>
-        </div>
-        <span class="error-msg">Celular de 9 dígitos.</span>
-      </div>
+    <div class="field-group">
+      <label for="negocio">Nombre de tu negocio</label>
+      <input type="text" id="negocio" name="negocio" placeholder="Ej. Mi Bodega S.A.C." required>
+      <span class="error-msg" id="err-negocio">Ingresa el nombre de tu negocio.</span>
     </div>
 
-    <div class="row">
-      <div class="field" data-field="categoria">
-        <label for="categoria">¿Qué te interesa?<span class="req">*</span></label>
-        <select id="categoria" name="categoria" required>
-          <option value="">Selecciona interés</option>
-          <option value="Comida / Restaurantes">Comida / Restaurantes</option>
-          <option value="Belleza / Cuidado Personal">Belleza / Cuidado Personal</option>
-          <option value="Ropa / Moda">Ropa / Moda</option>
-          <option value="Entretenimiento / Eventos">Entretenimiento / Eventos</option>
-          <option value="Servicios Técnicos">Servicios para el Hogar</option>
-          <option value="Todas las categorías">Todas las categorías</option>
-          <option value="Otro">Otro...</option>
-        </select>
-        <span class="error-msg">Selecciona un interés.</span>
-      </div>
-
-      <div class="field" id="categoriaOtraContainer" style="display: none;" data-field="categoriaOtra">
-        <label for="categoriaOtra">Especifique interés<span class="req">*</span></label>
-        <input type="text" id="categoriaOtra" name="categoriaOtra" placeholder="Ej: Mascotas / Veterinaria">
-        <span class="error-msg">Escribe tu interés.</span>
-      </div>
+    <div class="field-group">
+      <label for="telefono">Celular / WhatsApp</label>
+      <input type="tel" id="telefono" name="telefono" placeholder="912345678" maxlength="9" required>
+      <span class="error-msg" id="err-telefono">Ingresa un celular peruano válido (9 dígitos).</span>
     </div>
 
-    <div class="field" data-field="correo">
-      <label for="correo">Correo electrónico <span class="opt">(opcional)</span></label>
-      <input type="email" id="correo" name="correo" placeholder="tu@correo.com">
-      <span class="error-msg">Ingresa un correo válido.</span>
+    <div class="field-group">
+      <label for="email">Correo electrónico</label>
+      <input type="email" id="email" name="email" placeholder="correo@ejemplo.com" required>
+      <span class="error-msg" id="err-email">Ingresa un correo electrónico válido.</span>
     </div>
 
-    <!-- Honeypot anti-spam -->
-    <div style="position:absolute;left:-9999px;" aria-hidden="true">
-      <input type="text" id="sitioWeb" name="sitioWeb" tabindex="-1" autocomplete="off">
+    <div class="field-group full-width">
+      <label for="distrito">Distrito</label>
+      <select id="distrito" name="distrito" required>
+        <option value="" disabled selected>Selecciona tu distrito</option>
+        <option value="Bellavista">Bellavista</option>
+        <option value="Breña">Breña</option>
+        <option value="Callao">Callao</option>
+        <option value="Jesús María">Jesús María</option>
+        <option value="La Perla">La Perla</option>
+        <option value="Magdalena">Magdalena</option>
+        <option value="Pueblo Libre">Pueblo Libre</option>
+        <option value="San Miguel">San Miguel</option>
+      </select>
+      <span class="error-msg" id="err-distrito">Selecciona un distrito.</span>
     </div>
 
-    <button type="submit" class="submit-btn" id="submitBtn">Unirme a la cuponera</button>
-
-    <div class="banner" id="formBanner" role="alert" aria-live="polite"></div>
+    <div class="field-group full-width">
+      <button type="submit" id="submitBtn" class="btn-submit">Suscribirme ahora</button>
+      <p class="form-footer-note">
+        Al hacer clic en "Suscribirme ahora", aceptas recibir información sobre promociones exclusivas. Respetamos tu privacidad y no enviamos spam.
+      </p>
+      <div id="statusFeedback" class="status-feedback" aria-live="polite"></div>
+    </div>
   </form>
 </div>
 
 <script>
-(function(){
-  "use strict";
+  // Reemplazar por la URL de tu Web App desplegada en Google Apps Script
+  const SCRIPT_URL = 'TU_WEB_APP_URL_AQUI';
 
-  var form = document.getElementById("cuponeraForm");
-  var banner = document.getElementById("formBanner");
-  var submitBtn = document.getElementById("submitBtn");
+  const form = document.getElementById('cuponeraForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const feedback = document.getElementById('statusFeedback');
 
-  // Reemplaza por la URL ejecutable de tu Apps Script
-  var SHEET_ENDPOINT = "REEMPLAZAR_CON_TU_NUEVO_URL_EXEC_APPS_SCRIPT";
-  var DRAFT_KEY = "of_cuponera_subscriber_draft";
-  var isSubmitting = false;
-
-  // --- DISTRITOS (LIMA Y CALLAO) ---
-  var distritos = [
-    "Ancón","Ate","Barranco","Bellavista","Breña","Callao","Carabayllo","Carmen de La Legua-Reynoso",
-    "Chaclacayo","Chorrillos","Cieneguilla","Comas","El Agustino","Independencia","Jesús María",
-    "La Molina","La Perla","La Punta","La Victoria","Lima","Lince","Los Olivos","Lurigancho","Lurín",
-    "Magdalena del Mar","Mi Perú","Miraflores","Pachacámac","Pucusana","Pueblo Libre","Puente Piedra",
-    "Punta Hermosa","Punta Negra","Rímac","San Bartolo","San Borja","San Isidro","San Juan de Lurigancho",
-    "San Juan de Miraflores","San Luis","San Martín de Porres","San Miguel","Santa Anita",
-    "Santa María del Mar","Santa Rosa","Santiago de Surco","Surquillo","Ventanilla","Villa El Salvador","Villa María del Triunfo"
-  ];
-  
-  var selDistrito = document.getElementById("distrito");
-  var distMap = {};
-  distritos.forEach(function(d){
-    var opt = document.createElement("option");
-    opt.value = d;
-    opt.textContent = d;
-    selDistrito.appendChild(opt);
-    distMap[d.toLowerCase()] = d;
-  });
-
-  // --- CONTROL DE "OTRO" ---
-  var selCategoria = document.getElementById("categoria");
-  var containerOtra = document.getElementById("categoriaOtraContainer");
-  var inputOtra = document.getElementById("categoriaOtra");
-
-  function handleCategoriaChange() {
-    if (selCategoria.value === "Otro") {
-      containerOtra.style.display = "flex";
-    } else {
-      containerOtra.style.display = "none";
-      inputOtra.value = "";
-      setError("categoriaOtra", false);
-    }
+  // Sanitización de entradas contra XSS
+  function escapeHtml(str) {
+    return String(str).replace(/[&<>"']/g, function (match) {
+      const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
+      return map[match];
+    });
   }
-  selCategoria.addEventListener("change", handleCategoriaChange);
 
-  // --- MÁSCARA DE TELÉFONO ---
-  var telInput = document.getElementById("telefono");
-  telInput.addEventListener("input", function(){
-    var clean = this.value.replace(/\D/g, "").slice(0, 9);
-    if (clean.length > 6) this.value = clean.slice(0,3) + " " + clean.slice(3,6) + " " + clean.slice(6);
-    else if (clean.length > 3) this.value = clean.slice(0,3) + " " + clean.slice(3);
-    else this.value = clean;
-    saveDraft();
-  });
-
-  // --- LOCALSTORAGE (AUTOGUARDADO) ---
+  // Guardar y restaurar borrador vía localStorage
   function saveDraft() {
-    if (isSubmitting) return;
-    var draft = {
-      nombres: form.nombres.value,
-      distrito: selDistrito.value,
-      telefono: telInput.value,
-      categoria: selCategoria.value,
-      categoriaOtra: inputOtra.value,
-      correo: form.correo.value
+    const draft = {
+      nombre: form.nombre.value,
+      negocio: form.negocio.value,
+      telefono: form.telefono.value,
+      email: form.email.value,
+      distrito: form.distrito.value
     };
-    try { localStorage.setItem(DRAFT_KEY, JSON.stringify(draft)); } catch(e){}
+    localStorage.setItem('cuponera_draft', JSON.stringify(draft));
   }
 
   function loadDraft() {
-    try {
-      var raw = localStorage.getItem(DRAFT_KEY);
-      if (!raw) return;
-      var draft = JSON.parse(raw);
-      if (draft.nombres) form.nombres.value = draft.nombres;
-      if (draft.distrito) selDistrito.value = draft.distrito;
-      if (draft.telefono) telInput.value = draft.telefono;
-      if (draft.categoria) selCategoria.value = draft.categoria;
-      handleCategoriaChange();
-      if (draft.categoriaOtra) inputOtra.value = draft.categoriaOtra;
-      if (draft.correo) form.correo.value = draft.correo;
-    } catch(e){}
-  }
-
-  form.addEventListener("input", saveDraft);
-  form.addEventListener("change", saveDraft);
-  loadDraft();
-
-  // --- VALIDACIÓN ---
-  function setError(name, hasError) {
-    var f = form.querySelector('[data-field="' + name + '"]');
-    if (f) f.classList.toggle("error", hasError);
-  }
-
-  function validate() {
-    var nombresOk = form.nombres.value.trim().length >= 2;
-    setError("nombres", !nombresOk);
-
-    var distVal = selDistrito.value.trim();
-    var distOk = !!distMap[distVal.toLowerCase()];
-    setError("distrito", !distOk);
-
-    var phoneDigits = form.telefono.value.replace(/\D/g, "");
-    var phoneOk = phoneDigits.length === 9 && phoneDigits.startsWith("9");
-    setError("telefono", !phoneOk);
-
-    var catVal = selCategoria.value;
-    var catOk = catVal !== "";
-    setError("categoria", !catOk);
-
-    var catOtraOk = true;
-    if (catVal === "Otro") {
-      catOtraOk = inputOtra.value.trim().length >= 2;
-      setError("categoriaOtra", !catOtraOk);
-    } else {
-      setError("categoriaOtra", false);
+    const draft = JSON.parse(localStorage.getItem('cuponera_draft'));
+    if (draft) {
+      form.nombre.value = draft.nombre || '';
+      form.negocio.value = draft.negocio || '';
+      form.telefono.value = draft.telefono || '';
+      form.email.value = draft.email || '';
+      form.distrito.value = draft.distrito || '';
     }
-
-    var correoVal = form.correo.value.trim();
-    var correoOk = true;
-    if (correoVal.length > 0) {
-      correoOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correoVal);
-    }
-    setError("correo", !correoOk);
-
-    return nombresOk && distOk && phoneOk && catOk && catOtraOk && correoOk;
   }
 
-  // --- ENVÍO ---
-  form.addEventListener("submit", function(e){
-    e.preventDefault();
+  form.addEventListener('input', saveDraft);
+  document.addEventListener('DOMContentLoaded', loadDraft);
+
+  // Validaciones del formulario
+  function validateForm() {
+    let isValid = true;
     
-    if (!validate()) {
-      banner.textContent = "Revisa los campos requeridos.";
-      banner.className = "banner show err";
+    // Regex
+    const phoneRegex = /^9\d{8}$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    // Reset mensajes
+    document.querySelectorAll('.error-msg').forEach(el => el.style.display = 'none');
+
+    if (!form.nombre.value.trim()) {
+      document.getElementById('err-nombre').style.display = 'block';
+      isValid = false;
+    }
+
+    if (!form.negocio.value.trim()) {
+      document.getElementById('err-negocio').style.display = 'block';
+      isValid = false;
+    }
+
+    if (!phoneRegex.test(form.telefono.value.trim())) {
+      document.getElementById('err-telefono').style.display = 'block';
+      isValid = false;
+    }
+
+    if (!emailRegex.test(form.email.value.trim())) {
+      document.getElementById('err-email').style.display = 'block';
+      isValid = false;
+    }
+
+    if (!form.distrito.value) {
+      document.getElementById('err-distrito').style.display = 'block';
+      isValid = false;
+    }
+
+    return isValid;
+  }
+
+  // Envío del formulario
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    // Filtro Honeypot antispam
+    if (form.website.value !== "") {
       return;
     }
 
-    // Honeypot
-    if (document.getElementById("sitioWeb").value.trim() !== "") {
-      banner.textContent = "¡Te has suscrito con éxito!";
-      banner.className = "banner show success";
-      localStorage.removeItem(DRAFT_KEY);
-      form.reset();
-      return;
-    }
+    if (!validateForm()) return;
 
-    var finalCategoria = selCategoria.value === "Otro" ? inputOtra.value.trim() : selCategoria.value;
-
-    var payload = {
-      nombres: form.nombres.value.trim(),
-      distrito: selDistrito.value.trim(),
-      telefono: form.telefono.value.replace(/\D/g, ""),
-      categoria: finalCategoria,
-      correo: form.correo.value.trim()
-    };
-
-    isSubmitting = true;
     submitBtn.disabled = true;
     submitBtn.textContent = "Procesando...";
+    feedback.className = "status-feedback";
+    feedback.style.display = "none";
 
-    fetch(SHEET_ENDPOINT, {
-      method: "POST",
-      headers: { "Content-Type": "text/plain;charset=utf-8" },
+    const payload = {
+      nombre: escapeHtml(form.nombre.value.trim()),
+      negocio: escapeHtml(form.negocio.value.trim()),
+      telefono: escapeHtml(form.telefono.value.trim()),
+      email: escapeHtml(form.email.value.trim()),
+      distrito: escapeHtml(form.distrito.value)
+    };
+
+    fetch(SCRIPT_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
       body: JSON.stringify(payload)
     })
-    .then(function(res){
-      if (!res.ok) throw new Error("Error en servidor");
-      return res.json();
-    })
-    .then(function(data){
-      if (data && data.result === "success") {
-        banner.textContent = "¡Listo! Te has suscrito correctamente a la cuponera.";
-        banner.className = "banner show success";
-        localStorage.removeItem(DRAFT_KEY);
+    .then(res => res.json())
+    .then(data => {
+      if (data.result === 'success') {
+        feedback.textContent = "¡Suscripción realizada con éxito!";
+        feedback.className = "status-feedback success";
+        feedback.style.display = "block";
         form.reset();
-        handleCategoriaChange();
+        localStorage.removeItem('cuponera_draft');
+      } else if (data.result === 'exists') {
+        feedback.textContent = "El número o correo ya se encuentra registrado.";
+        feedback.className = "status-feedback error";
+        feedback.style.display = "block";
       } else {
-        banner.textContent = (data && data.message) || "No se pudo completar el registro.";
-        banner.className = "banner show err";
+        throw new Error('Respuesta del servidor no válida');
       }
     })
-    .catch(function(){
-      banner.textContent = "Error de conexión. Inténtalo de nuevo.";
-      banner.className = "banner show err";
+    .catch(err => {
+      feedback.textContent = "Ocurrió un error al procesar el registro. Inténtalo de nuevo.";
+      feedback.className = "status-feedback error";
+      feedback.style.display = "block";
     })
-    .finally(function(){
-      isSubmitting = false;
+    .finally(() => {
       submitBtn.disabled = false;
-      submitBtn.textContent = "Unirme a la cuponera";
+      submitBtn.textContent = "Suscribirme ahora";
     });
   });
-})();
 </script>
+
 </body>
 </html>

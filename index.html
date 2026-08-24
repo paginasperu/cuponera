@@ -532,7 +532,7 @@
               id="otraCategoria"
               name="otraCategoria"
               maxlength="80"
-              placeholder="Ej.: Servicios para mascotas"
+              placeholder="Ej.: Servicios industriales"
             >
 
             <div class="error-message">
@@ -743,7 +743,7 @@
   ========================================================= */
 
   var SHEET_ENDPOINT =
-    "https://script.google.com/macros/s/AKfycbyL-uRqBVunQYX6HekhMpFPDdvjPANO4DVy2y6JhbZms7R4pOa5fswiBBzCutvYth8p/exec";
+    "PEGA_AQUI_LA_URL_DE_TU_APPS_SCRIPT";
 
   var DRAFT_KEY =
     "oficial_cuponera_suscripcion_draft";
@@ -1353,6 +1353,12 @@
       }
 
 
+      var categoriaFinal =
+        categoria.value === "Otros"
+          ? otraCategoria.value.trim()
+          : categoria.value;
+
+
       var payload = {
 
         nombreNegocio:
@@ -1361,12 +1367,7 @@
             .trim(),
 
         categoria:
-          categoria.value,
-
-        otraCategoria:
-          categoria.value === "Otros"
-            ? otraCategoria.value.trim()
-            : "",
+          categoriaFinal,
 
         tipoNegocio:
           form.tipoNegocio

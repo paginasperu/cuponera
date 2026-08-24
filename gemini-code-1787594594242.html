@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Suscripción a Cuponera Oficial | OFICIAL.PE</title>
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:wght@400;600;700&family=Inter:wght@400;500;600&display=swap');
+
+  /* Encapsulamiento total CSS bajo #of-form */
+  #of-form {
+    background: #F3F0E7;
+    color: #17161B;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.5;
+    padding: clamp(20px, 4vw, 48px) clamp(12px, 3vw, 16px);
+    background-image: radial-gradient(circle, rgba(23,22,27,0.06) 1px, transparent 1px);
+    background-size: 22px 22px;
+    box-sizing: border-box;
+  }
+
+  #of-form * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  #of-form .sheet {
+    max-width: 720px;
+    margin: 0 auto;
+    background: #FBFAF6;
+    position: relative;
+    border: 1px solid #17161B;
+    box-shadow: 6px 6px 0 #17161B;
+  }
+
+  /* Marcas de registro impresas */
+  #of-form .crop { position: absolute; width: 20px; height: 20px; pointer-events: none; }
+  #of-form .crop::before, #of-form .crop::after { content: ""; position: absolute; background: #17161B; }
+  #of-form .crop::before { width: 100%; height: 1px; top: 50%; left: 0; }
+  #of-form .crop::after { width: 1px; height: 100%; left: 50%; top: 0; }
+  #of-form .tl { top: -10px; left: -10px; } #of-form .tr { top: -10px; right: -10px; }
+  #of-form .bl { bottom: -10px; left: -10px; } #of-form .br { bottom: -10px; right: -10px; }
+
+  #of-form header.masthead {
+    padding: clamp(24px, 4vw, 36px) clamp(18px, 5vw, 44px) clamp(20px, 3.5vw, 26px);
+    border-bottom: 2px solid #17161B;
+  }
+
+  #of-form .masthead-top {
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 12px; flex-wrap: wrap; margin-bottom: 14px;
+  }
+
+  #of-form .masthead-brand {
+    font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: .16em;
+    font-weight: 700; color: #8F1420; text-transform: uppercase;
+    display: flex; align-items: center; gap: 8px;
+  }
+  #of-form .masthead-brand::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #C81D2C; }
+
+  #of-form .whatsapp-help {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #17161B;
+    text-decoration: none; background: #fff; padding: 8px 14px;
+    border: 1px solid #17161B; border-radius: 2px; box-shadow: 2px 2px 0 #17161B;
+    transition: all .15s ease;
+  }
+  #of-form .whatsapp-help:hover { background: #17161B; color: #fff; transform: translate(-1px, -1px); box-shadow: 3px 3px 0 #C81D2C; }
+
+  #of-form h1 { font-family: 'Archivo Black', sans-serif; font-size: clamp(24px, 4.8vw, 36px); line-height: 1.1; margin-bottom: 10px; text-transform: uppercase; }
+  #of-form .masthead p { color: #726C5D; font-size: clamp(14px, 2vw, 15px); max-width: 54ch; }
+
+  #of-form form { padding: 8px clamp(18px, 5vw, 44px) clamp(24px, 5vw, 44px); }
+  #of-form .section { padding: 24px 0 6px; }
+
+  #of-form .section-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 18px; }
+  #of-form .section-num { font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #C81D2C; font-weight: 700; }
+  #of-form .section-title { font-family: 'Archivo Black', sans-serif; font-size: clamp(17px, 3vw, 19px); text-transform: uppercase; }
+
+  #of-form .row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  #of-form .field { margin-bottom: 20px; }
+  #of-form .field label { display: block; font-size: 12.5px; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 7px; }
+  #of-form .field label .req { color: #C81D2C; margin-left: 2px; }
+  #of-form .field label .opt { font-weight: 400; text-transform: none; color: #726C5D; font-size: 11.5px; }
+
+  #of-form input[type=text], #of-form input[type=tel], #of-form input[type=email], #of-form select {
+    width: 100%; font-family: 'Inter', system-ui, sans-serif; font-size: 16px;
+    min-height: 46px; padding: 11px 12px; border: 1px solid #17161B; border-radius: 2px;
+    background: #fff; color: #17161B; appearance: none; -webkit-appearance: none;
+  }
+  #of-form input:focus, #of-form select:focus { outline: none; border-color: #C81D2C; box-shadow: 0 0 0 3px rgba(200,29,44,0.15); }
+  
+  #of-form .error-msg { display: none; font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: #8F1420; margin-top: 6px; }
+  #of-form .field.error input, #of-form .field.error select { border-color: #C81D2C; background: #FBEDEC; }
+  #of-form .field.error .error-msg { display: block; }
+
+  /* Prefijo telefónico */
+  #of-form .prefix-field { position: relative; }
+  #of-form .prefix-field .prefix {
+    position: absolute; left: 1px; top: 1px; bottom: 1px; display: flex; align-items: center;
+    padding: 0 10px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #726C5D;
+    background: #EFEBDF; border-right: 1px solid #17161B; pointer-events: none;
+  }
+  #of-form .prefix-field input { padding-left: 54px; font-family: 'IBM Plex Mono', monospace; }
+
+  #of-form .trust-badge {
+    margin: 10px 0 20px; padding: 14px 18px; background: #EEF6F1;
+    border: 1px solid rgba(43,107,74,0.25); border-left: 4px solid #2B6B4A; display: flex; align-items: center;
+    gap: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 700; color: #2B6B4A;
+  }
+
+  #of-form .submit-row { margin-top: 10px; display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+  #of-form button.submit {
+    font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: .08em; text-transform: uppercase;
+    font-weight: 600; background: #17161B; color: #fff; border: 1px solid #17161B; padding: 15px 30px;
+    border-radius: 2px; cursor: pointer; box-shadow: 3px 3px 0 rgba(23,22,27,0.3); transition: all .15s ease;
+  }
+  #of-form button.submit:hover { background: #8F1420; border-color: #8F1420; box-shadow: 4px 4px 0 #17161B; }
+  #of-form button.submit:disabled { opacity: .6; cursor: not-allowed; box-shadow: none; }
+
+  #of-form .banner { display: none; margin-top: 20px; padding: 20px 22px; border: 1.5px solid #2B6B4A; background: #EEF6F1; color: #2B6B4A; }
+  #of-form .banner.show { display: block; }
+  #of-form .banner.err { border-color: #C81D2C; background: #FBEDEC; color: #8F1420; }
+  #of-form .stamp-seal { display: inline-block; border: 2.5px double #2B6B4A; padding: 6px 14px; margin-bottom: 12px; font-family: 'IBM Plex Mono', monospace; font-weight: 700; text-transform: uppercase; }
+
+  #of-form footer.stamp { text-align: center; margin-top: 26px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 700; letter-spacing: .18em; color: #726C5D; text-transform: uppercase; }
+
+  @media (max-width: 640px) {
+    #of-form .row { grid-template-columns: 1fr; gap: 0; }
+    #of-form .submit-row { flex-direction: column; align-items: stretch; }
+    #of-form button.submit { width: 100%; text-align: center; }
+  }
+  </style>
+</head>
+<body>
+
+<div id="of-form">
+<div class="sheet">
+  <span class="crop tl"></span><span class="crop tr"></span>
+  <span class="crop bl"></span><span class="crop br"></span>
+
+  <header class="masthead">
+    <div class="masthead-top">
+      <div class="masthead-brand">OFICIAL</div>
+      <a href="https://wa.me/51950141414?text=Hola%2C%20tengo%20consultas%20sobre%20la%20Suscripci%C3%B3n%20a%20la%20Cuponera" target="_blank" rel="noopener" class="whatsapp-help">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.838.814 2.796.814 3.181 0 5.767-2.587 5.768-5.766.001-3.181-2.586-5.768-5.768-5.768zm3.364 8.163c-.14.394-.712.753-1.002.802-.27.045-.615.084-1.782-.401-1.493-.621-2.454-2.14-2.528-2.24-.075-.1-.611-.813-.611-1.549 0-.736.386-1.099.522-1.248.136-.149.297-.186.396-.186.099 0 .198.001.284.005.091.005.213-.034.333.255.125.298.423 1.034.46 1.109.037.075.062.162.012.261-.05.1-.075.162-.149.248-.075.087-.157.194-.224.261-.075.075-.153.156-.065.307.087.151.389.641.834 1.038.572.509 1.055.666 1.205.741.15.075.238.063.326-.037.087-.1.374-.435.474-.585.1-.15.199-.125.336-.075.137.05.867.409 1.016.484.15.075.249.112.286.174.037.063.037.362-.103.756zM12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.66 1.434 5.176L2 22l4.954-1.396A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+        <span>¿Tienes dudas? <strong>Escribir por WhatsApp</strong></span>
+      </a>
+    </div>
+    <h1>Suscripción a Cuponera</h1>
+    <p>Registra los datos de tu negocio para unirte a nuestra red publicitaria y participar en las impresiones compartidas.</p>
+  </header>
+
+  <form id="of-cuponeraForm" novalidate>
+    <section class="section">
+      <div class="section-head">
+        <span class="section-num">01</span>
+        <span class="section-title">Información Comercial</span>
+      </div>
+
+      <div class="field" data-field="nombreNegocio">
+        <label for="of-nombreNegocio">Nombre del negocio<span class="req">*</span></label>
+        <input type="text" id="of-nombreNegocio" name="nombreNegocio" maxlength="80" placeholder="Ej: Barbería Don José" required>
+        <div class="error-msg">Ingresa el nombre de tu negocio.</div>
+      </div>
+
+      <div class="row">
+        <div class="field" data-field="categoria">
+          <label for="of-categoria">Categoría<span class="req">*</span></label>
+          <select id="of-categoria" name="categoria" required>
+            <option value="">Selecciona una categoría</option>
+            <option value="Gastronomía / Restaurantes">Gastronomía / Restaurantes</option>
+            <option value="Salud / Estética / Cuidado Personal">Salud / Estética / Cuidado Personal</option>
+            <option value="Moda / Calzado / Accesorios">Moda / Calzado / Accesorios</option>
+            <option value="Comercio / Tiendas / Retail">Comercio / Tiendas / Retail</option>
+            <option value="Servicios Técnicos / Hogar">Servicios Técnicos / Hogar</option>
+            <option value="Educación / Capacitación">Educación / Capacitación</option>
+            <option value="Entretenimiento / Eventos">Entretenimiento / Eventos</option>
+            <option value="Servicios Profesionales">Servicios Profesionales</option>
+            <option value="Otros">Otros...</option>
+          </select>
+          <div class="error-msg">Selecciona una categoría.</div>
+        </div>
+
+        <div class="field" id="of-categoriaOtraContainer" style="display: none;" data-field="categoriaOtra">
+          <label for="of-categoriaOtra">Especificar categoría<span class="req">*</span></label>
+          <input type="text" id="of-categoriaOtra" name="categoriaOtra" maxlength="50" placeholder="Ej: Podología clínica">
+          <div class="error-msg">Escribe la categoría de tu negocio.</div>
+        </div>
+      </div>
+
+      <div class="field" data-field="tipoNegocio">
+        <label for="of-tipoNegocio">Tipo de negocio <span class="opt">(opcional)</span></label>
+        <input type="text" id="of-tipoNegocio" name="tipoNegocio" maxlength="100" placeholder="Ej: Venta de perfumes o Perfumería artesanal">
+      </div>
+
+      <div class="row">
+        <div class="field" data-field="distrito">
+          <label for="of-distrito">Distrito<span class="req">*</span></label>
+          <select id="of-distrito" name="distrito" required>
+            <option value="">Selecciona tu distrito</option>
+          </select>
+          <div class="error-msg">Selecciona un distrito válido.</div>
+        </div>
+
+        <div class="field" data-field="nombreEncargado">
+          <label for="of-nombreEncargado">Nombre del encargado <span class="opt">(opcional)</span></label>
+          <input type="text" id="of-nombreEncargado" name="nombreEncargado" maxlength="60" placeholder="Ej: Juan Pérez">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field" data-field="telefono">
+          <label for="of-telefono">Teléfono celular<span class="req">*</span></label>
+          <div class="prefix-field">
+            <span class="prefix">+51</span>
+            <input type="tel" id="of-telefono" name="telefono" placeholder="987 654 321" maxlength="11" inputmode="numeric" required>
+          </div>
+          <div class="error-msg">Ingresa un celular de 9 dígitos que empiece con 9.</div>
+        </div>
+
+        <div class="field" data-field="correo">
+          <label for="of-correo">Correo electrónico <span class="opt">(opcional)</span></label>
+          <input type="email" id="of-correo" name="correo" placeholder="contacto@minegocio.pe" maxlength="80">
+          <div class="error-msg">Ingresa un correo electrónico válido.</div>
+        </div>
+      </div>
+
+      <div class="trust-badge">
+        <span>TUS DATOS SERÁN USADOS EXCLUSIVAMENTE PARA COORDINAR TU PARTICIPACIÓN EN LA CUPONERA</span>
+      </div>
+
+      <!-- Honeypot anti-spam -->
+      <div style="position:absolute;left:-9999px;" aria-hidden="true">
+        <input type="text" id="of-sitioWeb" name="sitioWeb" tabindex="-1" autocomplete="off">
+      </div>
+
+      <div class="submit-row">
+        <button type="submit" class="submit" id="of-submitBtn">Suscribir mi negocio</button>
+      </div>
+
+      <!-- Banner de alerta -->
+      <div class="banner" id="of-formBanner" role="alert" aria-live="polite">
+        <div class="stamp-seal" id="of-stampSeal" style="display:none;">✓ REGISTRO RECIBIDO</div>
+        <div id="of-bannerMsg"></div>
+      </div>
+    </section>
+  </form>
+</div>
+
+<footer class="stamp">OFICIAL.PE</footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var form = document.getElementById("of-cuponeraForm");
+  var banner = document.getElementById("of-formBanner");
+  var bannerMsg = document.getElementById("of-bannerMsg");
+  var stampSeal = document.getElementById("of-stampSeal");
+  var submitBtn = document.getElementById("of-submitBtn");
+
+  // Reemplaza esta URL con la Web App ejecutables de tu nuevo Apps Script
+  var SHEET_ENDPOINT = "REEMPLAZAR_CON_TU_NUEVO_URL_EXEC_APPS_SCRIPT";
+  var DRAFT_KEY = "of_cuponera_form_draft";
+  var isSubmitting = false;
+
+  // --- DISTRITOS (50 OFICIALES) ---
+  var distritos = [
+    "Ancón","Ate","Barranco","Bellavista","Breña","Callao","Carabayllo","Carmen de La Legua-Reynoso",
+    "Chaclacayo","Chorrillos","Cieneguilla","Comas","El Agustino","Independencia","Jesús María",
+    "La Molina","La Perla","La Punta","La Victoria","Lima","Lince","Los Olivos","Lurigancho","Lurín",
+    "Magdalena del Mar","Mi Perú","Miraflores","Pachacámac","Pucusana","Pueblo Libre","Puente Piedra",
+    "Punta Hermosa","Punta Negra","Rímac","San Bartolo","San Borja","San Isidro","San Juan de Lurigancho",
+    "San Juan de Miraflores","San Luis","San Martín de Porres","San Miguel","Santa Anita",
+    "Santa María del Mar","Santa Rosa","Santiago de Surco","Surquillo","Ventanilla","Villa El Salvador","Villa María del Triunfo"
+  ];
+  
+  var selDistrito = document.getElementById("of-distrito");
+  var distMap = {};
+  distritos.forEach(function(d){
+    var opt = document.createElement("option");
+    opt.value = d;
+    opt.textContent = d;
+    selDistrito.appendChild(opt);
+    distMap[d.toLowerCase()] = d;
+  });
+
+  // --- CONTROL DE CATEGORÍA "OTROS" ---
+  var selCategoria = document.getElementById("of-categoria");
+  var containerOtra = document.getElementById("of-categoriaOtraContainer");
+  var inputOtra = document.getElementById("of-categoriaOtra");
+
+  function handleCategoriaChange() {
+    if (selCategoria.value === "Otros") {
+      containerOtra.style.display = "block";
+    } else {
+      containerOtra.style.display = "none";
+      inputOtra.value = "";
+      setError("categoriaOtra", false);
+    }
+  }
+  selCategoria.addEventListener("change", handleCategoriaChange);
+
+  // --- MÁSCARA DE TELÉFONO ---
+  var telInput = document.getElementById("of-telefono");
+  telInput.addEventListener("input", function(){
+    var clean = this.value.replace(/\D/g, "").slice(0, 9);
+    if (clean.length > 6) this.value = clean.slice(0,3) + " " + clean.slice(3,6) + " " + clean.slice(6);
+    else if (clean.length > 3) this.value = clean.slice(0,3) + " " + clean.slice(3);
+    else this.value = clean;
+    saveDraft();
+  });
+
+  // --- LOCALSTORAGE (BORRADOR AUTOMÁTICO) ---
+  function saveDraft() {
+    if (isSubmitting) return;
+    var draft = {
+      nombreNegocio: form.nombreNegocio.value,
+      categoria: selCategoria.value,
+      categoriaOtra: inputOtra.value,
+      tipoNegocio: form.tipoNegocio.value,
+      distrito: selDistrito.value,
+      nombreEncargado: form.nombreEncargado.value,
+      telefono: telInput.value,
+      correo: form.correo.value
+    };
+    try { localStorage.setItem(DRAFT_KEY, JSON.stringify(draft)); } catch(e){}
+  }
+
+  function loadDraft() {
+    try {
+      var raw = localStorage.getItem(DRAFT_KEY);
+      if (!raw) return;
+      var draft = JSON.parse(raw);
+      if (draft.nombreNegocio) form.nombreNegocio.value = draft.nombreNegocio;
+      if (draft.categoria) selCategoria.value = draft.categoria;
+      handleCategoriaChange();
+      if (draft.categoriaOtra) inputOtra.value = draft.categoriaOtra;
+      if (draft.tipoNegocio) form.tipoNegocio.value = draft.tipoNegocio;
+      if (draft.distrito) selDistrito.value = draft.distrito;
+      if (draft.nombreEncargado) form.nombreEncargado.value = draft.nombreEncargado;
+      if (draft.telefono) telInput.value = draft.telefono;
+      if (draft.correo) form.correo.value = draft.correo;
+    } catch(e){}
+  }
+
+  form.addEventListener("input", saveDraft);
+  form.addEventListener("change", saveDraft);
+  loadDraft();
+
+  // --- VALIDACIONES ESTRUCTURALES ---
+  function setError(name, hasError) {
+    var f = form.querySelector('[data-field="' + name + '"]');
+    if (f) f.classList.toggle("error", hasError);
+  }
+
+  function validate() {
+    var nombreNegocioOk = form.nombreNegocio.value.trim().length >= 2;
+    setError("nombreNegocio", !nombreNegocioOk);
+
+    var catVal = selCategoria.value;
+    var catOk = catVal !== "";
+    setError("categoria", !catOk);
+
+    var catOtraOk = true;
+    if (catVal === "Otros") {
+      catOtraOk = inputOtra.value.trim().length >= 2;
+      setError("categoriaOtra", !catOtraOk);
+    } else {
+      setError("categoriaOtra", false);
+    }
+
+    var distVal = selDistrito.value.trim();
+    var distOk = !!distMap[distVal.toLowerCase()];
+    setError("distrito", !distOk);
+
+    var phoneDigits = form.telefono.value.replace(/\D/g, "");
+    var phoneOk = phoneDigits.length === 9 && phoneDigits.startsWith("9");
+    setError("telefono", !phoneOk);
+
+    var correoVal = form.correo.value.trim();
+    var correoOk = true;
+    if (correoVal.length > 0) {
+      correoOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correoVal);
+    }
+    setError("correo", !correoOk);
+
+    return nombreNegocioOk && catOk && catOtraOk && distOk && phoneOk && correoOk;
+  }
+
+  // --- ENVÍO VÍA FETCH ---
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    
+    if (!validate()) {
+      bannerMsg.textContent = "Revisa los campos marcados en rojo antes de enviar.";
+      banner.className = "banner show err";
+      stampSeal.style.display = "none";
+      return;
+    }
+
+    // Honeypot anti-bot
+    if (document.getElementById("of-sitioWeb").value.trim() !== "") {
+      bannerMsg.textContent = "¡Registro recibido correctamente!";
+      banner.className = "banner show";
+      stampSeal.style.display = "inline-block";
+      localStorage.removeItem(DRAFT_KEY);
+      form.reset();
+      return;
+    }
+
+    var finalCategoria = selCategoria.value === "Otros" ? inputOtra.value.trim() : selCategoria.value;
+
+    var payload = {
+      nombreNegocio: form.nombreNegocio.value.trim(),
+      nombreEncargado: form.nombreEncargado.value.trim(),
+      telefono: form.telefono.value.replace(/\D/g, ""),
+      correo: form.correo.value.trim(),
+      distrito: selDistrito.value.trim(),
+      categoria: finalCategoria,
+      tipoNegocio: form.tipoNegocio.value.trim()
+    };
+
+    isSubmitting = true;
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Suscribiendo negocio…";
+
+    fetch(SHEET_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(payload)
+    })
+    .then(function(res){
+      if (!res.ok) throw new Error("Respuesta del servidor no OK");
+      return res.json();
+    })
+    .then(function(data){
+      if (data && data.result === "success") {
+        bannerMsg.textContent = "¡Negocio registrado correctamente! Gracias por unirte a la cuponera.";
+        banner.className = "banner show";
+        stampSeal.style.display = "inline-block";
+        localStorage.removeItem(DRAFT_KEY);
+        form.reset();
+        handleCategoriaChange();
+      } else {
+        bannerMsg.textContent = (data && data.message) || "Ocurrió un error al guardar.";
+        banner.className = "banner show err";
+        stampSeal.style.display = "none";
+      }
+    })
+    .catch(function(){
+      bannerMsg.textContent = "Error de conexión con el servidor.";
+      banner.className = "banner show err";
+      stampSeal.style.display = "none";
+    })
+    .finally(function(){
+      isSubmitting = false;
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Suscribir mi negocio";
+    });
+  });
+})();
+</script>
+</body>
+</html>

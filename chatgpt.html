@@ -1,0 +1,1624 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  >
+
+  <title>Suscripción Cuponera OFICIAL | OFICIAL.PE</title>
+
+  <meta
+    name="description"
+    content="Suscribe gratis tu negocio a la Cuponera OFICIAL."
+  >
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      background: #f8f8f6;
+      color: #171717;
+      font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+      line-height: 1.5;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    .page {
+      width: 100%;
+      min-height: 100vh;
+      padding: 70px 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .brand {
+      margin-bottom: 46px;
+      text-align: center;
+      color: #77736c;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+    }
+
+    .header {
+      margin-bottom: 50px;
+      text-align: center;
+    }
+
+    .header h1 {
+      max-width: 620px;
+      margin: 0 auto 18px;
+      font-size: clamp(32px, 6vw, 48px);
+      font-weight: 400;
+      line-height: 1.12;
+      letter-spacing: -0.035em;
+    }
+
+    .header p {
+      max-width: 540px;
+      margin: 0 auto;
+      color: #5f5d58;
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+    .form-card {
+      width: 100%;
+      padding: 38px;
+      background: #ffffff;
+      border: 1px solid #deddd9;
+      border-radius: 16px;
+    }
+
+    .section {
+      margin-bottom: 42px;
+    }
+
+    .section:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .section-title {
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #e6e5e1;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .field {
+      margin-bottom: 22px;
+    }
+
+    .field:last-child {
+      margin-bottom: 0;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .required {
+      margin-left: 2px;
+    }
+
+    .optional {
+      margin-left: 5px;
+      color: #8a8882;
+      font-size: 12px;
+      font-weight: 400;
+    }
+
+    input,
+    select {
+      width: 100%;
+      min-height: 50px;
+      padding: 12px 14px;
+      border: 1px solid #cbc9c4;
+      border-radius: 9px;
+      outline: none;
+      background: #ffffff;
+      color: #171717;
+      font-size: 16px;
+      transition:
+        border-color 0.15s ease,
+        box-shadow 0.15s ease;
+    }
+
+    input::placeholder {
+      color: #aaa7a0;
+    }
+
+    select {
+      cursor: pointer;
+    }
+
+    input:focus,
+    select:focus {
+      border-color: #171717;
+      box-shadow: 0 0 0 3px rgba(23, 23, 23, 0.08);
+    }
+
+    .phone-wrap {
+      position: relative;
+    }
+
+    .phone-prefix {
+      position: absolute;
+      z-index: 1;
+      top: 1px;
+      bottom: 1px;
+      left: 1px;
+      display: flex;
+      width: 52px;
+      align-items: center;
+      justify-content: center;
+      border-right: 1px solid #deddd9;
+      border-radius: 8px 0 0 8px;
+      background: #f4f3f0;
+      color: #6e6b65;
+      font-size: 14px;
+      pointer-events: none;
+    }
+
+    .phone-wrap input {
+      padding-left: 65px;
+    }
+
+    .error-message {
+      display: none;
+      margin-top: 7px;
+      color: #a41f2b;
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .field.error input,
+    .field.error select {
+      border-color: #a41f2b;
+      background: #fffafa;
+    }
+
+    .field.error .error-message {
+      display: block;
+    }
+
+    .other-category {
+      display: none;
+      margin-top: 14px;
+    }
+
+    .other-category.show {
+      display: block;
+    }
+
+    .submit-area {
+      margin-top: 36px;
+    }
+
+    .submit-button {
+      width: 100%;
+      min-height: 54px;
+      padding: 14px 24px;
+      border: 1px solid #171717;
+      border-radius: 999px;
+      background: #171717;
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      transition:
+        background 0.15s ease,
+        opacity 0.15s ease,
+        transform 0.15s ease;
+    }
+
+    .submit-button:hover {
+      background: #343434;
+      transform: translateY(-1px);
+    }
+
+    .submit-button:disabled {
+      cursor: not-allowed;
+      opacity: 0.55;
+      transform: none;
+    }
+
+    .privacy {
+      margin: 15px auto 0;
+      color: #83807a;
+      font-size: 12px;
+      line-height: 1.55;
+      text-align: center;
+    }
+
+    .banner {
+      display: none;
+      margin-top: 24px;
+      padding: 18px 20px;
+      border: 1px solid #bad6c5;
+      border-radius: 10px;
+      background: #f4faf6;
+      color: #215d39;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .banner.show {
+      display: block;
+    }
+
+    .banner.error {
+      border-color: #e0b9bd;
+      background: #fff7f7;
+      color: #8c1e29;
+    }
+
+    .success-title {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    .footer {
+      margin-top: 40px;
+      color: #86827b;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .honeypot {
+      position: absolute !important;
+      left: -9999px !important;
+      width: 1px !important;
+      height: 1px !important;
+      overflow: hidden !important;
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        padding: 40px 14px;
+      }
+
+      .brand {
+        margin-bottom: 34px;
+      }
+
+      .header {
+        margin-bottom: 34px;
+      }
+
+      .header h1 {
+        font-size: 34px;
+      }
+
+      .header p {
+        font-size: 15px;
+      }
+
+      .form-card {
+        padding: 26px 18px;
+        border-radius: 12px;
+      }
+
+      .row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .section {
+        margin-bottom: 36px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="page">
+
+    <div class="container">
+
+      <div class="brand">
+        OFICIAL.PE
+      </div>
+
+      <header class="header">
+        <h1>
+          Suscríbete a la Cuponera OFICIAL
+        </h1>
+
+        <p>
+          Registra gratis tu negocio para recibir descuentos,
+          beneficios y promociones de proveedores seleccionados.
+        </p>
+      </header>
+
+      <div class="form-card">
+
+        <form id="subscriptionForm" novalidate>
+
+          <!-- ==============================
+               01 — NEGOCIO
+          =============================== -->
+
+          <section class="section">
+
+            <div class="section-title">
+              01 · Tu negocio
+            </div>
+
+            <div
+              class="field"
+              data-field="nombreNegocio"
+            >
+              <label for="nombreNegocio">
+                Nombre del negocio
+                <span class="required">*</span>
+              </label>
+
+              <input
+                type="text"
+                id="nombreNegocio"
+                name="nombreNegocio"
+                maxlength="100"
+                autocomplete="organization"
+                placeholder="Ej.: Perfumería Rosita"
+                required
+              >
+
+              <div class="error-message">
+                Ingresa el nombre de tu negocio.
+              </div>
+            </div>
+
+
+            <div
+              class="field"
+              data-field="categoria"
+            >
+              <label for="categoria">
+                Categoría
+                <span class="required">*</span>
+              </label>
+
+              <select
+                id="categoria"
+                name="categoria"
+                required
+              >
+                <option value="">
+                  Selecciona una categoría
+                </option>
+
+                <option value="Alimentos y bebidas">
+                  Alimentos y bebidas
+                </option>
+
+                <option value="Belleza y cuidado personal">
+                  Belleza y cuidado personal
+                </option>
+
+                <option value="Moda y accesorios">
+                  Moda y accesorios
+                </option>
+
+                <option value="Salud y bienestar">
+                  Salud y bienestar
+                </option>
+
+                <option value="Hogar y decoración">
+                  Hogar y decoración
+                </option>
+
+                <option value="Tecnología y electrónica">
+                  Tecnología y electrónica
+                </option>
+
+                <option value="Servicios profesionales">
+                  Servicios profesionales
+                </option>
+
+                <option value="Educación y capacitación">
+                  Educación y capacitación
+                </option>
+
+                <option value="Automotriz y transporte">
+                  Automotriz y transporte
+                </option>
+
+                <option value="Construcción y mantenimiento">
+                  Construcción y mantenimiento
+                </option>
+
+                <option value="Entretenimiento y eventos">
+                  Entretenimiento y eventos
+                </option>
+
+                <option value="Turismo y hospedaje">
+                  Turismo y hospedaje
+                </option>
+
+                <option value="Mascotas">
+                  Mascotas
+                </option>
+
+                <option value="Deportes y fitness">
+                  Deportes y fitness
+                </option>
+
+                <option value="Comercio y tiendas">
+                  Comercio y tiendas
+                </option>
+
+                <option value="Otros">
+                  Otros
+                </option>
+              </select>
+
+              <div class="error-message">
+                Selecciona una categoría.
+              </div>
+
+
+              <div
+                class="other-category"
+                id="otherCategoryWrap"
+              >
+                <label for="otraCategoria">
+                  Especifica la categoría
+                  <span class="required">*</span>
+                </label>
+
+                <input
+                  type="text"
+                  id="otraCategoria"
+                  name="otraCategoria"
+                  maxlength="80"
+                  placeholder="Ej.: Servicios para mascotas"
+                >
+              </div>
+
+            </div>
+
+
+            <div
+              class="field"
+              data-field="tipoNegocio"
+            >
+              <label for="tipoNegocio">
+                Tipo de negocio
+                <span class="optional">
+                  (opcional)
+                </span>
+              </label>
+
+              <input
+                type="text"
+                id="tipoNegocio"
+                name="tipoNegocio"
+                maxlength="80"
+                placeholder="Ej.: Perfumería, chifa, barbería"
+              >
+            </div>
+
+
+            <div
+              class="field"
+              data-field="distrito"
+            >
+              <label for="distrito">
+                Distrito del negocio
+                <span class="required">*</span>
+              </label>
+
+              <select
+                id="distrito"
+                name="distrito"
+                required
+              >
+                <option value="">
+                  Selecciona el distrito
+                </option>
+              </select>
+
+              <div class="error-message">
+                Selecciona el distrito de tu negocio.
+              </div>
+            </div>
+
+          </section>
+
+
+          <!-- ==============================
+               02 — CONTACTO
+          =============================== -->
+
+          <section class="section">
+
+            <div class="section-title">
+              02 · Contacto
+            </div>
+
+
+            <div
+              class="field"
+              data-field="encargado"
+            >
+              <label for="encargado">
+                Nombre del encargado
+                <span class="optional">
+                  (opcional)
+                </span>
+              </label>
+
+              <input
+                type="text"
+                id="encargado"
+                name="encargado"
+                maxlength="100"
+                autocomplete="name"
+                placeholder="Ej.: María López"
+              >
+            </div>
+
+
+            <div
+              class="field"
+              data-field="telefono"
+            >
+              <label for="telefono">
+                Teléfono / WhatsApp
+                <span class="required">*</span>
+              </label>
+
+              <div class="phone-wrap">
+
+                <span class="phone-prefix">
+                  +51
+                </span>
+
+                <input
+                  type="tel"
+                  id="telefono"
+                  name="telefono"
+                  inputmode="numeric"
+                  autocomplete="tel"
+                  maxlength="11"
+                  placeholder="987 654 321"
+                  required
+                >
+
+              </div>
+
+              <div class="error-message">
+                Ingresa un celular peruano válido de 9 dígitos.
+              </div>
+            </div>
+
+
+            <div
+              class="field"
+              data-field="correo"
+            >
+              <label for="correo">
+                Correo electrónico
+                <span class="optional">
+                  (opcional)
+                </span>
+              </label>
+
+              <input
+                type="email"
+                id="correo"
+                name="correo"
+                maxlength="120"
+                autocomplete="email"
+                placeholder="negocio@correo.com"
+              >
+
+              <div class="error-message">
+                Ingresa un correo electrónico válido.
+              </div>
+            </div>
+
+          </section>
+
+
+          <!-- Honeypot antispam -->
+          <div
+            class="honeypot"
+            aria-hidden="true"
+          >
+            <label for="website">
+              Sitio web
+            </label>
+
+            <input
+              type="text"
+              id="website"
+              name="website"
+              tabindex="-1"
+              autocomplete="off"
+            >
+          </div>
+
+
+          <div class="submit-area">
+
+            <button
+              type="submit"
+              class="submit-button"
+              id="submitButton"
+            >
+              Suscribirme gratis
+            </button>
+
+            <p class="privacy">
+              Al registrarte, tus datos serán utilizados
+              para gestionar tu suscripción a la Cuponera OFICIAL.
+            </p>
+
+          </div>
+
+
+          <div
+            class="banner"
+            id="formBanner"
+            role="alert"
+            aria-live="polite"
+          ></div>
+
+        </form>
+
+      </div>
+
+
+      <footer class="footer">
+        OFICIAL
+      </footer>
+
+    </div>
+
+  </main>
+
+
+  <script>
+    (function () {
+
+      "use strict";
+
+
+      /* =========================================================
+         CONFIGURACIÓN
+      ========================================================= */
+
+      /*
+        REEMPLAZA ESTA URL
+        con la URL /exec del nuevo Apps Script
+        para la Cuponera OFICIAL.
+      */
+
+      var SHEET_ENDPOINT =
+        "PEGA_AQUI_LA_URL_DE_TU_APPS_SCRIPT";
+
+
+      var DRAFT_KEY =
+        "oficial_cuponera_suscripcion_draft";
+
+
+      var isSubmitting = false;
+
+
+
+      /* =========================================================
+         ELEMENTOS
+      ========================================================= */
+
+      var form =
+        document.getElementById("subscriptionForm");
+
+      var submitButton =
+        document.getElementById("submitButton");
+
+      var formBanner =
+        document.getElementById("formBanner");
+
+      var categoria =
+        document.getElementById("categoria");
+
+      var otraCategoria =
+        document.getElementById("otraCategoria");
+
+      var otherCategoryWrap =
+        document.getElementById("otherCategoryWrap");
+
+      var distrito =
+        document.getElementById("distrito");
+
+      var telefono =
+        document.getElementById("telefono");
+
+
+
+      /* =========================================================
+         DISTRITOS DE LIMA Y CALLAO
+      ========================================================= */
+
+      var distritos = [
+
+        "Ancón",
+        "Ate",
+        "Barranco",
+        "Bellavista",
+        "Breña",
+        "Callao",
+        "Carabayllo",
+        "Carmen de La Legua-Reynoso",
+        "Chaclacayo",
+        "Chorrillos",
+        "Cieneguilla",
+        "Comas",
+        "El Agustino",
+        "Independencia",
+        "Jesús María",
+        "La Molina",
+        "La Perla",
+        "La Punta",
+        "La Victoria",
+        "Lima",
+        "Lince",
+        "Los Olivos",
+        "Lurigancho",
+        "Lurín",
+        "Magdalena del Mar",
+        "Mi Perú",
+        "Miraflores",
+        "Pachacámac",
+        "Pucusana",
+        "Pueblo Libre",
+        "Puente Piedra",
+        "Punta Hermosa",
+        "Punta Negra",
+        "Rímac",
+        "San Bartolo",
+        "San Borja",
+        "San Isidro",
+        "San Juan de Lurigancho",
+        "San Juan de Miraflores",
+        "San Luis",
+        "San Martín de Porres",
+        "San Miguel",
+        "Santa Anita",
+        "Santa María del Mar",
+        "Santa Rosa",
+        "Santiago de Surco",
+        "Surquillo",
+        "Ventanilla",
+        "Villa El Salvador",
+        "Villa María del Triunfo"
+
+      ];
+
+
+      distritos.forEach(function (nombre) {
+
+        var option =
+          document.createElement("option");
+
+        option.value =
+          nombre;
+
+        option.textContent =
+          nombre;
+
+        distrito.appendChild(option);
+
+      });
+
+
+
+      /* =========================================================
+         CATEGORÍA "OTROS"
+      ========================================================= */
+
+      function updateOtherCategory() {
+
+        var isOther =
+          categoria.value === "Otros";
+
+        otherCategoryWrap.classList.toggle(
+          "show",
+          isOther
+        );
+
+        otraCategoria.required =
+          isOther;
+
+        if (!isOther) {
+
+          otraCategoria.value = "";
+
+        }
+
+      }
+
+
+      categoria.addEventListener(
+        "change",
+        function () {
+
+          updateOtherCategory();
+          saveDraft();
+
+        }
+      );
+
+
+
+      /* =========================================================
+         TELÉFONO
+      ========================================================= */
+
+      telefono.addEventListener(
+        "input",
+        function () {
+
+          var clean =
+            this.value
+              .replace(/\D/g, "")
+              .slice(0, 9);
+
+
+          if (clean.length > 6) {
+
+            this.value =
+              clean.slice(0, 3)
+              + " "
+              + clean.slice(3, 6)
+              + " "
+              + clean.slice(6);
+
+          } else if (clean.length > 3) {
+
+            this.value =
+              clean.slice(0, 3)
+              + " "
+              + clean.slice(3);
+
+          } else {
+
+            this.value =
+              clean;
+
+          }
+
+          saveDraft();
+
+        }
+      );
+
+
+
+      /* =========================================================
+         BORRADOR AUTOMÁTICO
+      ========================================================= */
+
+      function saveDraft() {
+
+        if (isSubmitting) {
+          return;
+        }
+
+
+        var draft = {
+
+          nombreNegocio:
+            form.nombreNegocio.value,
+
+          categoria:
+            categoria.value,
+
+          otraCategoria:
+            otraCategoria.value,
+
+          tipoNegocio:
+            form.tipoNegocio.value,
+
+          distrito:
+            distrito.value,
+
+          encargado:
+            form.encargado.value,
+
+          telefono:
+            telefono.value,
+
+          correo:
+            form.correo.value
+
+        };
+
+
+        try {
+
+          localStorage.setItem(
+            DRAFT_KEY,
+            JSON.stringify(draft)
+          );
+
+        } catch (e) {}
+
+      }
+
+
+
+      function loadDraft() {
+
+        try {
+
+          var raw =
+            localStorage.getItem(DRAFT_KEY);
+
+
+          if (!raw) {
+            return;
+          }
+
+
+          var draft =
+            JSON.parse(raw);
+
+
+          if (draft.nombreNegocio) {
+            form.nombreNegocio.value =
+              draft.nombreNegocio;
+          }
+
+
+          if (draft.categoria) {
+            categoria.value =
+              draft.categoria;
+          }
+
+
+          updateOtherCategory();
+
+
+          if (draft.otraCategoria) {
+            otraCategoria.value =
+              draft.otraCategoria;
+          }
+
+
+          if (draft.tipoNegocio) {
+            form.tipoNegocio.value =
+              draft.tipoNegocio;
+          }
+
+
+          if (draft.distrito) {
+            distrito.value =
+              draft.distrito;
+          }
+
+
+          if (draft.encargado) {
+            form.encargado.value =
+              draft.encargado;
+          }
+
+
+          if (draft.telefono) {
+            telefono.value =
+              draft.telefono;
+          }
+
+
+          if (draft.correo) {
+            form.correo.value =
+              draft.correo;
+          }
+
+        } catch (e) {}
+
+      }
+
+
+
+      form.addEventListener(
+        "input",
+        saveDraft
+      );
+
+
+      form.addEventListener(
+        "change",
+        saveDraft
+      );
+
+
+      loadDraft();
+
+
+
+      /* =========================================================
+         ERRORES
+      ========================================================= */
+
+      function setError(
+        fieldName,
+        hasError
+      ) {
+
+        var field =
+          form.querySelector(
+            '[data-field="' +
+            fieldName +
+            '"]'
+          );
+
+
+        if (!field) {
+          return;
+        }
+
+
+        field.classList.toggle(
+          "error",
+          hasError
+        );
+
+      }
+
+
+
+      function clearErrors() {
+
+        var fields =
+          form.querySelectorAll(
+            ".field.error"
+          );
+
+
+        fields.forEach(
+          function (field) {
+
+            field.classList.remove(
+              "error"
+            );
+
+          }
+        );
+
+      }
+
+
+
+      /* =========================================================
+         VALIDACIÓN
+      ========================================================= */
+
+      function validateEmail(email) {
+
+        if (!email) {
+          return true;
+        }
+
+
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+          .test(email);
+
+      }
+
+
+
+      function validate() {
+
+        clearErrors();
+
+
+        var valid = true;
+
+
+
+        /* Nombre del negocio */
+
+        var nombreNegocio =
+          form.nombreNegocio
+            .value
+            .trim();
+
+
+        if (nombreNegocio.length < 2) {
+
+          setError(
+            "nombreNegocio",
+            true
+          );
+
+          valid = false;
+
+        }
+
+
+
+        /* Categoría */
+
+        if (!categoria.value) {
+
+          setError(
+            "categoria",
+            true
+          );
+
+          valid = false;
+
+        }
+
+
+
+        /* Otra categoría */
+
+        if (
+          categoria.value === "Otros"
+          &&
+          otraCategoria
+            .value
+            .trim()
+            .length < 2
+        ) {
+
+          setError(
+            "categoria",
+            true
+          );
+
+          valid = false;
+
+        }
+
+
+
+        /* Distrito */
+
+        if (!distrito.value) {
+
+          setError(
+            "distrito",
+            true
+          );
+
+          valid = false;
+
+        }
+
+
+
+        /* Teléfono */
+
+        var phoneDigits =
+          telefono
+            .value
+            .replace(/\D/g, "");
+
+
+        var phoneOk =
+          phoneDigits.length === 9
+          &&
+          phoneDigits.charAt(0) === "9";
+
+
+        if (!phoneOk) {
+
+          setError(
+            "telefono",
+            true
+          );
+
+          valid = false;
+
+        }
+
+
+
+        /* Correo */
+
+        var correo =
+          form.correo
+            .value
+            .trim();
+
+
+        if (!validateEmail(correo)) {
+
+          setError(
+            "correo",
+            true
+          );
+
+          valid = false;
+
+        }
+
+
+        return valid;
+
+      }
+
+
+
+      /* =========================================================
+         BANNER
+      ========================================================= */
+
+      function showError(message) {
+
+        formBanner.innerHTML =
+          message;
+
+        formBanner.className =
+          "banner show error";
+
+      }
+
+
+
+      function showSuccess(
+        nombreNegocio
+      ) {
+
+        formBanner.innerHTML =
+          '<span class="success-title">'
+          +
+          '✓ SUSCRIPCIÓN REGISTRADA'
+          +
+          '</span>'
+          +
+          'Gracias, '
+          +
+          escapeHtml(nombreNegocio)
+          +
+          '. Tu negocio fue registrado correctamente '
+          +
+          'en la Cuponera OFICIAL.';
+
+
+        formBanner.className =
+          "banner show";
+
+      }
+
+
+
+      function escapeHtml(text) {
+
+        var div =
+          document.createElement("div");
+
+        div.textContent =
+          text;
+
+        return div.innerHTML;
+
+      }
+
+
+
+      /* =========================================================
+         ENVÍO
+      ========================================================= */
+
+      form.addEventListener(
+        "submit",
+        function (event) {
+
+          event.preventDefault();
+
+
+          formBanner.className =
+            "banner";
+
+
+          if (!validate()) {
+
+            showError(
+              "Revisa los campos marcados antes de continuar."
+            );
+
+            var firstError =
+              form.querySelector(
+                ".field.error"
+              );
+
+
+            if (firstError) {
+
+              firstError.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+              });
+
+            }
+
+            return;
+
+          }
+
+
+
+          /* Honeypot */
+
+          if (
+            document
+              .getElementById("website")
+              .value
+              .trim() !== ""
+          ) {
+
+            localStorage.removeItem(
+              DRAFT_KEY
+            );
+
+            form.reset();
+
+            updateOtherCategory();
+
+            showSuccess(
+              "tu negocio"
+            );
+
+            return;
+
+          }
+
+
+
+          if (
+            !SHEET_ENDPOINT
+            ||
+            SHEET_ENDPOINT ===
+              "PEGA_AQUI_LA_URL_DE_TU_APPS_SCRIPT"
+          ) {
+
+            showError(
+              "El formulario todavía no tiene configurada la URL de Google Apps Script."
+            );
+
+            return;
+
+          }
+
+
+
+          var payload = {
+
+            nombreNegocio:
+              form.nombreNegocio
+                .value
+                .trim(),
+
+            categoria:
+              categoria.value,
+
+            otraCategoria:
+              categoria.value === "Otros"
+                ? otraCategoria.value.trim()
+                : "",
+
+            tipoNegocio:
+              form.tipoNegocio
+                .value
+                .trim(),
+
+            distrito:
+              distrito.value,
+
+            encargado:
+              form.encargado
+                .value
+                .trim(),
+
+            telefono:
+              telefono
+                .value
+                .replace(/\D/g, ""),
+
+            correo:
+              form.correo
+                .value
+                .trim()
+                .toLowerCase()
+
+          };
+
+
+
+          isSubmitting = true;
+
+
+          submitButton.disabled =
+            true;
+
+
+          submitButton.textContent =
+            "Registrando…";
+
+
+
+          fetch(
+            SHEET_ENDPOINT,
+            {
+
+              method: "POST",
+
+              headers: {
+                "Content-Type":
+                  "text/plain;charset=utf-8"
+              },
+
+              body:
+                JSON.stringify(payload)
+
+            }
+          )
+
+
+          .then(function (response) {
+
+            if (!response.ok) {
+
+              throw new Error(
+                "Respuesta inválida del servidor."
+              );
+
+            }
+
+
+            return response.json();
+
+          })
+
+
+          .then(function (data) {
+
+
+            if (
+              data
+              &&
+              data.result === "success"
+            ) {
+
+              showSuccess(
+                payload.nombreNegocio
+              );
+
+
+              localStorage.removeItem(
+                DRAFT_KEY
+              );
+
+
+              form.reset();
+
+              updateOtherCategory();
+
+
+              formBanner.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+              });
+
+
+              return;
+
+            }
+
+
+
+            if (
+              data
+              &&
+              data.result === "exists"
+            ) {
+
+              showError(
+                data.message
+                ||
+                "Este negocio ya se encuentra registrado."
+              );
+
+              return;
+
+            }
+
+
+
+            showError(
+              data && data.message
+                ? data.message
+                : "No se pudo completar el registro. Inténtalo nuevamente."
+            );
+
+          })
+
+
+          .catch(function (error) {
+
+            console.error(
+              "Error:",
+              error
+            );
+
+
+            showError(
+              "No se pudo conectar con el servidor. Inténtalo nuevamente."
+            );
+
+          })
+
+
+          .finally(function () {
+
+            isSubmitting =
+              false;
+
+
+            submitButton.disabled =
+              false;
+
+
+            submitButton.textContent =
+              "Suscribirme gratis";
+
+          });
+
+        }
+      );
+
+    })();
+  </script>
+
+</body>
+</html>
